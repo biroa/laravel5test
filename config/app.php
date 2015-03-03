@@ -145,6 +145,10 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+        /**
+         *  Whoops Service Provider
+         */
+        'Gvb\Whoops\ServiceProvider',
 	],
 
 	/*
