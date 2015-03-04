@@ -135,6 +135,8 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+        'Illuminate\HTML\HTMLServiceProvider',
+        'Gvb\Whoops\ServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -145,10 +147,6 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
-        /**
-         *  Whoops Service Provider
-         */
-        'Gvb\Whoops\ServiceProvider',
 	],
 
 	/*
@@ -196,6 +194,8 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+        'Form'      => 'Illuminate\HTML\FormFacade',
+        'Html'      => 'Illuminate\HTML\HtmlFacade',
 
 	],
 
