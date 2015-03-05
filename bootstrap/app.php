@@ -37,9 +37,13 @@ $app->singleton(
 );
 
 $app->singleton(
-	'Illuminate\Contracts\Debug\ExceptionHandler',
-//	'App\Exceptions\Handler'
+    'Illuminate\Contracts\Debug\ExceptionHandler',
     'Gvb\Whoops\ExceptionHandler'
+);
+
+$app->singleton(
+	'Illuminate\Contracts\Debug\ExceptionHandler',
+	'App\Exceptions\Handler'
 );
 
 /*
