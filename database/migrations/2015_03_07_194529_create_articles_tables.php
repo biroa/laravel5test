@@ -17,8 +17,7 @@ class CreateArticlesTables extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('body');
-            $table->timestamps();
-            $table->timestamps('published_at');
+            $table->timestamps();//in this way Laravel insert the created_at,updated_at fields
         });
     }
 
