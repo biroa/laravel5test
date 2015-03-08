@@ -16,8 +16,10 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        //
-        $articles = Article::all();
+
+        //$articles = Article::all();
+        //get data based on order by desc
+        $articles = Article::latest('updated_at')->get();
         return view('articles.index',compact('articles'));
     }
 
@@ -38,9 +40,7 @@ class ArticlesController extends Controller
      */
     public function store()
     {
-//        $input = Request::all();
-        //Get the data with descending order
-        $input = Request::latest('updated_at')->get();
+        $input = Request::all();
         $input['update_at'] = Carbon::now();
         Article::create($input);//Mass assignment based solution
 
