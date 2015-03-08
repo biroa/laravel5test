@@ -36,10 +36,10 @@ $app->singleton(
 	'App\Console\Kernel'
 );
 
-$app->singleton(
-	'Illuminate\Contracts\Debug\ExceptionHandler',
-	'App\Exceptions\Handler'
-);
+//$app->singleton(
+//	'Illuminate\Contracts\Debug\ExceptionHandler',
+//	'App\Exceptions\Handler'
+//);
 
 $app->singleton(
     'Illuminate\Contracts\Debug\ExceptionHandler',

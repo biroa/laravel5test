@@ -2,7 +2,8 @@
 
 use App\Article;
 use App\Http\Requests;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Request;
 
 class ArticlesController extends Controller
 {
@@ -37,7 +38,13 @@ class ArticlesController extends Controller
      */
     public function store()
     {
-        //
+//        $input = Request::all();
+        //Get the data with descending order
+        $input = Request::latest('updated_at')->get();
+        $input['update_at'] = Carbon::now();
+        Article::create($input);//Mass assignment based solution
+
+        return redirect('articles');
     }
 
     /**
