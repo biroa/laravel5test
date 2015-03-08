@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 class ArticlesController extends Controller
 {
 
-    public function __construct(){
-        $articles = new Article();
-    }
 
     /**
      * Display a listing of the resource.
@@ -20,7 +17,6 @@ class ArticlesController extends Controller
     {
         //
         $articles = Article::all();
-
         return $articles;
     }
 
