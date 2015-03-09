@@ -40,9 +40,8 @@ class ArticlesController extends Controller
      */
     public function store()
     {
-        $input = Request::all();
-        $input['update_at'] = Carbon::now();
-        Article::create($input);//Mass assignment based solution
+
+        Article::create(Request::all());//Mass assignment based solution
 
         return redirect('articles');
     }

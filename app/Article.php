@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
@@ -10,6 +11,12 @@ class Article extends Model
         'body',
         'updated_at'
     ];
-    //
+
+    // mutator
+    //setNameAttribute
+    public function setUpdatedAtAttribute($date)
+    {
+        $this->attributes['updated_at'] = Carbon::createFromFormat('Y-m-d H:i:s', $date);
+    }
 
 }
