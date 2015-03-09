@@ -19,7 +19,7 @@ class ArticlesController extends Controller
 
         //$articles = Article::all();
         //get data based on order by desc
-        $articles = Article::latest('updated_at')->get();
+        $articles = Article::latest('updated_at')->where('updated_at', '<=', Carbon::now())->get();
         return view('articles.index',compact('articles'));
     }
 
