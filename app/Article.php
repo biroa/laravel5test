@@ -16,7 +16,9 @@ class Article extends Model
     //setNameAttribute
     public function setUpdatedAtAttribute($date)
     {
-        $this->attributes['updated_at'] = Carbon::createFromFormat('Y-m-d H:i:s', $date);
+//        $this->attributes['updated_at'] = Carbon::createFromFormat('Y-m-d H:i:s', $date);
+//       Todo:: I will have to modify this later
+         $this->attributes['updated_at'] = Carbon::parse($date);
     }
 
 }
