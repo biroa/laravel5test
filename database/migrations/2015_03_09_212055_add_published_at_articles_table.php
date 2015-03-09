@@ -15,7 +15,7 @@ class AddPublishedAtArticlesTable extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             //
-            $table->timestamps('published_at');
+            $table->dateTime('published_at');
         });
     }
 
@@ -28,7 +28,7 @@ class AddPublishedAtArticlesTable extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             //
-            $table->dropColumn('published_at');
+            $table->dateTime('published_at');
         });
     }
 
