@@ -16,8 +16,8 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('update_at','Article title') !!}
-        {!! Form::input('date','update_at',date('Y-m-d'),['class'=>'form-control']) !!}
+        {!! Form::label('published_at','Article title') !!}
+        {!! Form::input('date','published_at',date('Y-m-d'),['class'=>'form-control']) !!}
     </div>
 
     <div class="form-group">
