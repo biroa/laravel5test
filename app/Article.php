@@ -12,11 +12,13 @@ class Article extends Model
         'published_at'
     ];
 
+    //Convert date to Carbon instance
+    protected $dates = ['published_at'];
+
     // mutator
     //setNameAttribute
     public function setPublishedAtAttribute($date)
     {
-//       $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
         $this->attributes['published_at'] = Carbon::parse($date);
     }
 
