@@ -25,4 +25,9 @@ class Article extends Model
         $query->where('published_at', '<=', $now);
     }
 
+    public function scopeUnpublished($query){
+        $now = Carbon::now()->toDateTimeString();
+        $query->where('published_at', '>=', $now);
+    }
+
 }
