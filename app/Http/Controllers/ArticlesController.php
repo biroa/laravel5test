@@ -2,8 +2,8 @@
 
 use App\Article;
 use App\Http\Requests;
+use App\Http\Requests\CreateArticleRequest;
 use Carbon\Carbon;
-use Request;
 
 class ArticlesController extends Controller
 {
@@ -39,11 +39,10 @@ class ArticlesController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(CreateArticleRequest $request)
     {
 
-        Article::create(Request::all());//Mass assignment based solution
-
+        Article::create($request->all());//Mass assignment based solution
         return redirect('articles');
     }
 

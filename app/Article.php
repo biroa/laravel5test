@@ -15,18 +15,19 @@ class Article extends Model
     //Convert date to Carbon instance
     protected $dates = ['published_at'];
 
-    // mutator
+    // mutators
     //setNameAttribute
     public function setPublishedAtAttribute($date)
     {
         $this->attributes['published_at'] = Carbon::parse($date);
     }
 
+    //query Scopes
     public function scopePublished($query){
         $now = Carbon::now()->toDateTimeString();
         $query->where('published_at', '<=', $now);
     }
-
+    //query Scopes
     public function scopeUnpublished($query){
         $now = Carbon::now()->toDateTimeString();
         $query->where('published_at', '>=', $now);
