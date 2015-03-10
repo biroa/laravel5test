@@ -21,3 +21,8 @@ Route::resource('articles','ArticlesController');
 //    'auth' => 'Auth\AuthController',
 //    'password' => 'Auth\PasswordController',
 //]);
+
+Event::listen('illuminate.query', function($query)
+{
+    var_dump($query);
+});

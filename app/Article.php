@@ -9,16 +9,15 @@ class Article extends Model
         'title',
         'excerpt',
         'body',
-        'updated_at'
+        'published_at'
     ];
 
     // mutator
     //setNameAttribute
-    public function setUpdatedAtAttribute($date)
+    public function setPublishedAtAttribute($date)
     {
-//        $this->attributes['updated_at'] = Carbon::createFromFormat('Y-m-d H:i:s', $date);
-//       Todo:: I will have to modify this later
-         $this->attributes['updated_at'] = Carbon::parse($date);
+//       $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d', $date);
+        $this->attributes['published_at'] = Carbon::parse($date);
     }
 
 }
