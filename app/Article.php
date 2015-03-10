@@ -20,4 +20,9 @@ class Article extends Model
         $this->attributes['published_at'] = Carbon::parse($date);
     }
 
+    public function scopePublished($query){
+        $now = Carbon::now()->toDateTimeString();
+        $query->where('published_at', '<=', $now);
+    }
+
 }
