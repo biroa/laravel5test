@@ -1,8 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\Article;
-use App\Http\Requests;
 use App\Http\Requests\CreateArticleRequest;
+use Illuminate\Http\Request;
 use Carbon\Carbon;
 
 class ArticlesController extends Controller
@@ -80,9 +80,15 @@ class ArticlesController extends Controller
      *
      * @return Response
      */
-    public function update($id)
+
+    //method injection
+    public function update($id,Request $request)
     {
-        //
+
+        $article = Article::findOrFail($id);
+        $article->update($request->all());
+
+        return redirect('articles');
     }
 
     /**
