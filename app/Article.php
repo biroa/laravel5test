@@ -9,7 +9,8 @@ class Article extends Model
         'title',
         'excerpt',
         'body',
-        'published_at'
+        'published_at',
+        'user_id'//Temporary
     ];
 
     //Convert date to Carbon instance
@@ -39,7 +40,7 @@ class Article extends Model
      * @return mixed
      */
     public function user(){
-        return $this->belongTo(\App\User);
+        return $this->belongsTo('App\User');
     }
 
 }
