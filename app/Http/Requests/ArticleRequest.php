@@ -1,6 +1,6 @@
 <?php namespace App\Http\Requests;
 
-class CreateArticleRequest extends Request
+class ArticleRequest extends Request
 {
 
     /**

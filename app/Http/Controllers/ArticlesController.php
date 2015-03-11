@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Article;
-use App\Http\Requests\CreateArticleRequest;
+use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -39,7 +39,7 @@ class ArticlesController extends Controller
      *
      * @return Response
      */
-    public function store(CreateArticleRequest $request)
+    public function store(ArticleRequest $request)
     {
 
         Article::create($request->all());//Mass assignment based solution
@@ -82,7 +82,7 @@ class ArticlesController extends Controller
      */
 
     //method injection
-    public function update($id,Request $request)
+    public function update($id,ArticleRequest $request)
     {
 
         $article = Article::findOrFail($id);
