@@ -33,4 +33,13 @@ class Article extends Model
         $query->where('published_at', '>=', $now);
     }
 
+    /**
+     * An article is owned by a user.
+     *
+     * @return mixed
+     */
+    public function user(){
+        return $this->belongTo(\App\User);
+    }
+
 }
