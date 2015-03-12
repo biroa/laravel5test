@@ -17,10 +17,10 @@ Route::get('home', 'HomeController@index');
 
 Route::resource('articles','ArticlesController');
 
-//Route::controllers([
-//    'auth' => 'Auth\AuthController',
-//    'password' => 'Auth\PasswordController',
-//]);
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
 
 Event::listen('illuminate.query', function($query)
 {

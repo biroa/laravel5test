@@ -19,6 +19,7 @@ class ArticlesController extends Controller
 
         //$articles = Article::all();
         //get data based on order by desc
+//        return \Auth::user();
         $now = Carbon::now()->toDateTimeString();
         $articles = Article::latest('published_at')->published()->get();
         return view('articles.index',compact('articles'));
@@ -41,8 +42,9 @@ class ArticlesController extends Controller
      */
     public function store(ArticleRequest $request)
     {
+        $article = new Article($request->all());//Mass assignment based solution
+        \Auth::user()->articles()->save($article);
 
-        Article::create($request->all());//Mass assignment based solution
         return redirect('articles');
     }
 
@@ -84,7 +86,6 @@ class ArticlesController extends Controller
     //method injection
     public function update($id,ArticleRequest $request)
     {
-
         $article = Article::findOrFail($id);
         $article->update($request->all());
 
