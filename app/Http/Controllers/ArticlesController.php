@@ -2,8 +2,8 @@
 
 use App\Article;
 use App\Http\Requests\ArticleRequest;
-use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
@@ -22,7 +22,8 @@ class ArticlesController extends Controller
 //        return \Auth::user();
         $now = Carbon::now()->toDateTimeString();
         $articles = Article::latest('published_at')->published()->get();
-        return view('articles.index',compact('articles'));
+
+        return view('articles.index', compact('articles'));
     }
 
     /**
@@ -59,7 +60,8 @@ class ArticlesController extends Controller
     {
         //
         $article = Article::findOrFail($id);
-        return view('articles.show',compact('article'));
+
+        return view('articles.show', compact('article'));
     }
 
     /**
@@ -72,6 +74,7 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article = Article::findOrFail($id);
+
         return view('articles.edit', compact('article'));
     }
 
@@ -84,7 +87,7 @@ class ArticlesController extends Controller
      */
 
     //method injection
-    public function update($id,ArticleRequest $request)
+    public function update($id, ArticleRequest $request)
     {
         $article = Article::findOrFail($id);
         $article->update($request->all());
