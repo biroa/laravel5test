@@ -8,9 +8,16 @@ use Illuminate\Http\Request;
 class ArticlesController extends Controller
 {
 
+    /*
+     * only || except
+     *
+     * ['index'=>'index']
+     *
+     */
+
     public function  __construct()
     {
-          $this->middleware('auth',['only'=>'create']);
+          $this->middleware('auth',['except'=>'index']);
     }
 
     /**
