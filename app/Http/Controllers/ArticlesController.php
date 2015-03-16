@@ -56,8 +56,8 @@ class ArticlesController extends Controller
     {
         $article = new Article($request->all());//Mass assignment based solution
         \Auth::user()->articles()->save($article);
-
-        \Session::flash('flash_message', 'Your article has been created');
+        //We use the laracasts service providers
+        flash()->success('Your article has been created');
 
         return redirect('articles');
     }
