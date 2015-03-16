@@ -43,4 +43,13 @@ class Article extends Model
         return $this->belongsTo('App\User');
     }
 
+    /**
+     * One article belongs To Many Tag
+     * One tag belongs To many Articles
+     * @return mixed
+     */
+    public function tag(){
+        return $this->belongsToMany('App\Tag');
+    }
+
 }
