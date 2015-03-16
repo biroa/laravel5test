@@ -17,7 +17,7 @@ class ArticlesController extends Controller
 
     public function  __construct()
     {
-          $this->middleware('auth',['except'=>'index']);
+        $this->middleware('auth', [ 'except' => 'index' ]);
     }
 
     /**
@@ -57,6 +57,8 @@ class ArticlesController extends Controller
         $article = new Article($request->all());//Mass assignment based solution
         \Auth::user()->articles()->save($article);
 
+        \Session::flash('flash_message', 'Your article has been created');
+
         return redirect('articles');
     }
 
@@ -68,8 +70,8 @@ class ArticlesController extends Controller
      * @return Response
      */
 
-      //We use model binding in Route Service Provider
-     //we do not need parameters anymore
+    //We use model binding in Route Service Provider
+    //we do not need parameters anymore
 
     //public function show($id)
 

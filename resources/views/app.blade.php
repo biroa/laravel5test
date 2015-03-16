@@ -9,7 +9,8 @@
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Fonts -->
-    <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,300'
+          rel='stylesheet' type='text/css'>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,9 +20,19 @@
     <![endif]-->
 </head>
 <body>
-    <div class="container">
-        @yield('content')
-    </div>
-    @yield('footer')
+<div class="container">
+    @if(Session::has('flash_message'))
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dissmiss="alert" aria-hidden="true">&times;</button>
+            {{ Session::get('flash_message') }}
+        </div>
+    @endif
+    @yield('content')
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+@yield('footer')
 </body>
 </html>
