@@ -49,7 +49,9 @@ class Article extends Model
      * @return mixed
      */
     public function tag(){
-        return $this->belongsToMany('App\Tag');
+        //In many-to-many relationship we have to add the 'withTimestamps'
+        //to insert the created and updated flags by default...
+        return $this->belongsToMany('App\Tag')->withTimestamps();
     }
 
 }
