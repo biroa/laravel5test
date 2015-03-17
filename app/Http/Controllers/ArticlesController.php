@@ -45,8 +45,8 @@ class ArticlesController extends Controller
     public function create()
     {
         //Second argument to get the value as a key too eg:
-        // "JavaScript" => "JavaScript"
-        $tags = \App\Tag::lists('name','name');
+        // "multiselect  array id" => "name|id [of the record]"
+        $tags = \App\Tag::lists('name','id');
         return view('articles.create',compact('tags'));
     }
 
@@ -59,6 +59,10 @@ class ArticlesController extends Controller
     {
         $article = new Article($request->all());//Mass assignment based solution
         \Auth::user()->articles()->save($article);
+
+        $tagIds = $request->input('tags');
+        $article->tag()->attach($tagIds);
+
         //We use the laracasts service providers
         flash()->success('Your article has been created');
 
