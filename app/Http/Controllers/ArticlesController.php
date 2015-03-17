@@ -46,8 +46,9 @@ class ArticlesController extends Controller
     {
         //Second argument to get the value as a key too eg:
         // "multiselect  array id" => "name|id [of the record]"
-        $tags = \App\Tag::lists('name','id');
-        return view('articles.create',compact('tags'));
+        $tags = \App\Tag::lists('name', 'id');
+
+        return view('articles.create', compact('tags'));
     }
 
     /**
@@ -57,6 +58,7 @@ class ArticlesController extends Controller
      */
     public function store(ArticleRequest $request)
     {
+
         //$article = new Article($request->all());//Mass assignment based solution
         $article = \Auth::user()->articles()->create($request->all());
         $article->tag()->attach($request->input('tag_list'));
@@ -104,8 +106,9 @@ class ArticlesController extends Controller
     public function edit(Article $article)
     {
         //$article = Article::findOrFail($id);
-        $tags = \App\Tag::lists('name','id');
-        return view('articles.edit', compact('article','tags'));
+        $tags = \App\Tag::lists('name', 'id');
+
+        return view('articles.edit', compact('article', 'tags'));
     }
 
     /**
@@ -128,6 +131,9 @@ class ArticlesController extends Controller
         //$article = Article::findOrFail($id);
 
         $article->update($request->all());
+        //sync force article model to be only associated
+        //with this tag list during the update
+        $article->tag()->sync($request->input('tag_list'));
 
         return redirect('articles');
     }
