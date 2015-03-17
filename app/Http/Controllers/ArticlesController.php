@@ -44,7 +44,9 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        $tags = \App\Tag::lists('name');
+        //Second argument to get the value as a key too eg:
+        // "JavaScript" => "JavaScript"
+        $tags = \App\Tag::lists('name','name');
         return view('articles.create',compact('tags'));
     }
 
