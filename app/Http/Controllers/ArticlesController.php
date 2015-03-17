@@ -133,6 +133,8 @@ class ArticlesController extends Controller
         $article->update($request->all());
         //sync force article model to be only associated
         //with this tag list during the update
+        
+        //use attach,detach,sync on pivot table
         $article->tag()->sync($request->input('tag_list'));
 
         return redirect('articles');
