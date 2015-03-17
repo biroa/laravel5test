@@ -7,7 +7,7 @@
         </article>
 
     @unless($article->tag->isEmpty())
-    <h5>Tags:</h5>
+        <h5>Tags:</h5>
         <ul>
             @foreach($article->tag as $tag)
                 <li>{{$tag->name}}</li>

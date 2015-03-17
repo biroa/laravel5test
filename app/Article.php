@@ -54,4 +54,13 @@ class Article extends Model
         return $this->belongsToMany('App\Tag')->withTimestamps();
     }
 
+    /**
+     * Use it for multiple select as form model binding
+     *
+     * @return mixed
+     */
+    public function getTagListAttribute(){
+        return $this->tag->lists('id');
+    }
+
 }
