@@ -61,7 +61,8 @@ class ArticlesController extends Controller
 
         //$article = new Article($request->all());//Mass assignment based solution
         $article = \Auth::user()->articles()->create($request->all());
-        $article->tag()->attach($request->input('tag_list'));
+        //$article->tag()->attach($request->input('tag_list'));
+        $this->syncTag($article, $request->input('tag_list'));
 
         //We use the laracasts service providers
         flash()->success('Your article has been created');
