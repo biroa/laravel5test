@@ -111,6 +111,10 @@ class ArticlesController extends Controller
         return view('articles.edit', compact('article', 'tags'));
     }
 
+    private function syncTag(Article $article, array $tags){
+        $article->tag()->sync($tags);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -133,9 +137,10 @@ class ArticlesController extends Controller
         $article->update($request->all());
         //sync force article model to be only associated
         //with this tag list during the update
-        
+
         //use attach,detach,sync on pivot table
-        $article->tag()->sync($request->input('tag_list'));
+        //$article->tag()->sync($request->input('tag_list'));
+        $this->syncTag($article, $request->input('tag_list'));
 
         return redirect('articles');
     }
