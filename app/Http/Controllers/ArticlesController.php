@@ -60,9 +60,8 @@ class ArticlesController extends Controller
     {
 
         //$article = new Article($request->all());//Mass assignment based solution
-        $article = \Auth::user()->articles()->create($request->all());
         //$article->tag()->attach($request->input('tag_list'));
-        $this->syncTag($article, $request->input('tag_list'));
+        $this->createArticle($request);
 
         //We use the laracasts service providers
         flash()->success('Your article has been created');
@@ -112,8 +111,21 @@ class ArticlesController extends Controller
         return view('articles.edit', compact('article', 'tags'));
     }
 
-    private function syncTag(Article $article, array $tags){
-        $article->tag()->sync($tags);
+
+
+    public function update(Article $article, ArticleRequest $request)
+    {
+        //$article = Article::findOrFail($id);
+
+        $article->update($request->all());
+        //sync force article model to be only associated
+        //with this tag list during the update
+
+        //use attach,detach,sync on pivot table
+        //$article->tag()->sync($request->input('tag_list'));
+        $this->syncTag($article, $request->input('tag_list'));
+
+        return redirect('articles');
     }
 
     /**
@@ -130,20 +142,20 @@ class ArticlesController extends Controller
     //we do not need parameters anymore
 
     //public function update($id, ArticleRequest $request)
+    private function syncTag(Article $article, array $tags){
+        $article->tag()->sync($tags);
+    }
 
-    public function update(Article $article, ArticleRequest $request)
-    {
-        //$article = Article::findOrFail($id);
-
-        $article->update($request->all());
-        //sync force article model to be only associated
-        //with this tag list during the update
-
-        //use attach,detach,sync on pivot table
-        //$article->tag()->sync($request->input('tag_list'));
+    /**
+     * save article
+     *
+     * @param \App\Article $request
+     * @return mixed
+     */
+    public function createArticle(ArticleRequest $request){
+        $article = \Auth::user()->articles()->create($request->all());
         $this->syncTag($article, $request->input('tag_list'));
-
-        return redirect('articles');
+        return $article;
     }
 
     /**
