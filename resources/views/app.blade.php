@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Laravel</title>
 
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/all.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300'
           rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,9 +25,7 @@
     @yield('content')
 </div>
 
-<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
+<script src="/js/all.js"></script>
 
 
 @yield('footer')
