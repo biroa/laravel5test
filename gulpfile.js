@@ -19,4 +19,10 @@ elixir(function(mix) {
         'app.css',
         'libs/select2.min.css'
     ]);
+
+    mix.scripts([
+        'libs/jquery-2.1.3.min.js',
+        'libs/bootstrap.min.js',
+        'libs/select2.min.js'
+    ]);
 });
