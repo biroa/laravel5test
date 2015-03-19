@@ -27,8 +27,8 @@
 
 @section('footer')
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('#tag_list').select2();
+        $(document).ready(function () {
+            $('#tag_list').select2('Add a tag');
         });
     </script>
 @endsection
