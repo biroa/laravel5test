@@ -14,7 +14,7 @@ class Article extends Model
     ];
 
     //Convert date to Carbon instance
-    protected $dates = ['published_at'];
+    protected $dates = [ 'published_at' ];
 
     // mutators
     //setNameAttribute
@@ -24,12 +24,15 @@ class Article extends Model
     }
 
     //query Scopes
-    public function scopePublished($query){
+    public function scopePublished($query)
+    {
         $now = Carbon::now()->toDateTimeString();
         $query->where('published_at', '<=', $now);
     }
+
     //query Scopes
-    public function scopeUnpublished($query){
+    public function scopeUnpublished($query)
+    {
         $now = Carbon::now()->toDateTimeString();
         $query->where('published_at', '>=', $now);
     }
@@ -39,16 +42,19 @@ class Article extends Model
      *
      * @return mixed
      */
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo('App\User');
     }
 
     /**
      * One article belongs To Many Tag
      * One tag belongs To many Articles
+     *
      * @return mixed
      */
-    public function tag(){
+    public function tag()
+    {
         //In many-to-many relationship we have to add the 'withTimestamps'
         //to insert the created and updated flags by default...
         return $this->belongsToMany('App\Tag')->withTimestamps();
@@ -59,7 +65,8 @@ class Article extends Model
      *
      * @return mixed
      */
-    public function getTagListAttribute(){
+    public function getTagListAttribute()
+    {
         return $this->tag->lists('id');
     }
 
