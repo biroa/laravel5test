@@ -112,7 +112,6 @@ class ArticlesController extends Controller
     }
 
 
-
     public function update(Article $article, ArticleRequest $request)
     {
         //$article = Article::findOrFail($id);
@@ -142,7 +141,8 @@ class ArticlesController extends Controller
     //we do not need parameters anymore
 
     //public function update($id, ArticleRequest $request)
-    private function syncTag(Article $article, array $tags){
+    private function syncTag(Article $article, array $tags)
+    {
         $article->tag()->sync($tags);
     }
 
@@ -150,11 +150,14 @@ class ArticlesController extends Controller
      * save article
      *
      * @param \App\Article $request
+     *
      * @return mixed
      */
-    public function createArticle(ArticleRequest $request){
+    public function createArticle(ArticleRequest $request)
+    {
         $article = \Auth::user()->articles()->create($request->all());
         $this->syncTag($article, $request->input('tag_list'));
+
         return $article;
     }
 
