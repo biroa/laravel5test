@@ -13,10 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //Everything what is here will execute after register method
-        view()->composer('articles.partials._menu', function ($view) {
-            $view->with('latest', Article::latest()->first());
-        });
+
     }
 
     /**
