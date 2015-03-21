@@ -20,9 +20,10 @@
     <![endif]-->
 </head>
 <body>
+@include('articles.partials._menu')
 <div class="container">
-    @include('flash::message')
-    @yield('content')
+  @include('flash::message')
+  @yield('content')
 </div>
 
 <script src="/js/all.js"></script>
