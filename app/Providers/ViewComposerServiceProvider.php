@@ -33,8 +33,8 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function composeNavigation()
     {
         // If we would like to calculate or give beck something complex than it is not
-        //providers related task we can specify a class path instead closures like so:
-        //view()->composer('articles.partials._menu', 'App\HTTP\Composer\NavigationComposer');
+        //providers related task we can specify a class path with method instead closures like so:
+        //view()->composer('articles.partials._menu', 'App\HTTP\Composer\NavigationComposer@handle');
 
         //provider with closure
         view()->composer('articles.partials._menu', function ($view) {
