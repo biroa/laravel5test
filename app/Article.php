@@ -47,9 +47,9 @@ class Article extends Model
         return $this->belongsTo('App\User');
     }
 
-    //New get mutators
+    //New get mutators to provide an instance of carbon
     public function getPublishedAtAttribute($date){
-        return new Carbon($date);
+        return Carbon::parse($date)->format('Y-m-d');
     }
 
     /**
