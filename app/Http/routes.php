@@ -14,11 +14,14 @@
 Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 Route::resource('articles','ArticlesController');
+Route::resource('tags','TagsController');
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
+
 
 Event::listen('illuminate.query', function($query)
 {
