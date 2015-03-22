@@ -1,6 +1,7 @@
 <?php namespace App\Providers;
 
 use App\Article;
+use App\Tag;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
 
@@ -37,6 +38,14 @@ class RouteServiceProvider extends ServiceProvider
             return Article::published()->findOrFail($id);
 
         });
+
+        $router->bind('tags',function($name){
+
+            return Tag::where('name','=',$name)->firstOrFail();
+
+        });
+
+
 
     }
 
