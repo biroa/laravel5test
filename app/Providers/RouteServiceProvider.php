@@ -1,5 +1,6 @@
 <?php namespace App\Providers;
 
+use App\Article;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
 
@@ -29,7 +30,14 @@ class RouteServiceProvider extends ServiceProvider
         //the App\Articles model so we do not have to use
         // $id in default resource controllers
 
-        $router->model('articles', 'App\Article');
+        //$router->model('articles', 'App\Article');
+
+        $router->bind('articles',function($id){
+
+            return Article::published()->findOrFail($id);
+
+        });
+
     }
 
     /**
