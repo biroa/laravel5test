@@ -10,7 +10,9 @@
         <h5>Tags:</h5>
         <ul>
             @foreach($article->tag as $tag)
-                <li>{{$tag->name}}</li>
+                <li>
+                    <a href="{{  url('/tags/'.strtolower($tag->name)) }}">{{$tag->name}}</a>
+                </li>
             @endforeach
         </ul>
     @endunless
