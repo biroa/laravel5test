@@ -11,7 +11,7 @@
 <div class="form-group">
     {!! Form::label('published_at','Article title') !!}
     {!!
-    Form::input('date','published_at',date('Y-m-d'),['class'=>'form-control'])
+    Form::input('date','published_at',$article->published_at->format('Y-m-d'),['class'=>'form-control'])
     !!}
 </div>
 <div class="form-group">
@@ -27,7 +27,7 @@
 
 @section('footer')
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#tag_list').select2();
         });
     </script>
