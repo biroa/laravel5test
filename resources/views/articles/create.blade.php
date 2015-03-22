@@ -4,7 +4,7 @@
     <h1>New Article</h1>
 
     <hr/>
-    {!! Form::open(['url'=> 'articles' ]) !!}
+    {!! Form::model($article = new \App\Article,['url'=> 'articles' ]) !!}
     @include('articles.partials._form',['submitButtonText'=> 'Add Article'])
     {!! Form::close() !!}
 

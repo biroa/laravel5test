@@ -47,6 +47,11 @@ class Article extends Model
         return $this->belongsTo('App\User');
     }
 
+    //New get mutators
+    public function getPublishedAtAttribute($date){
+        return new Carbon($date);
+    }
+
     /**
      * One article belongs To Many Tag
      * One tag belongs To many Articles
