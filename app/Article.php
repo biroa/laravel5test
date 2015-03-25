@@ -29,6 +29,7 @@ class Article extends Model
 
     /**
      * @param $query
+     *
      *  set query Scopes
      */
     public function scopePublished($query)
@@ -37,7 +38,12 @@ class Article extends Model
         $query->where('published_at', '<=', $now);
     }
 
-    //query Scopes
+
+    /**
+     * @param $query
+     * 
+     * set query Scopes
+     */
     public function scopeUnpublished($query)
     {
         $now = Carbon::now()->toDateTimeString();
@@ -54,7 +60,14 @@ class Article extends Model
         return $this->belongsTo('App\User');
     }
 
-    //New get mutators to provide an instance of carbon
+
+    /**
+     * @param $date
+     *
+     * @return mixed
+     *
+     * New get mutators to provide an instance of carbon
+     */
     public function getPublishedAtAttribute($date){
         return Carbon::parse($date)->format('Y-m-d');
     }
