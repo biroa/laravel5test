@@ -22,9 +22,11 @@ class ArticleRequest extends Request
     {
         //We can write the rules in array instead of pipe
         return [
-            'title'     => 'required|min:3',
-            'body'      => 'required',
-            'published_at'  => 'required|date'
+            'title' => 'required|min:3',
+            'body' => 'required',
+            'published_at' => 'required|date',
+            'excerpt' => 'required|min:3|max:150',
+            'url' => 'required|min:3'
         ];
     }
 
