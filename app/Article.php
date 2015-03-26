@@ -7,10 +7,10 @@ class Article extends Model
 {
     protected $fillable = [
         'title',
+        'url',
         'excerpt',
         'body',
         'published_at',
-        'url'
     ];
 
     //Convert date to Carbon instance
