@@ -11,6 +11,13 @@
 </div>
 
 <div class="form-group">
+    {!! Form::label('excerpt','Lead') !!}
+    {!!
+    Form::text('excerpt',$article->excerpt,['class'=>'form-control'])
+    !!}
+</div>
+
+<div class="form-group">
     {!! Form::label('body','Body') !!}
     {!! Form::textarea('body',null,['class'=>'form-control']) !!}
 </div>
