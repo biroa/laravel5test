@@ -41,7 +41,7 @@ class Article extends Model
 
     /**
      * @param $query
-     * 
+     *
      * set query Scopes
      */
     public function scopeUnpublished($query)
@@ -68,7 +68,8 @@ class Article extends Model
      *
      * New get mutators to provide an instance of carbon
      */
-    public function getPublishedAtAttribute($date){
+    public function getPublishedAtAttribute($date)
+    {
         return Carbon::parse($date)->format('Y-m-d');
     }
 
