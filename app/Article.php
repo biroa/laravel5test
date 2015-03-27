@@ -16,15 +16,28 @@ class Article extends Model
     //Convert date to Carbon instance
     protected $dates = [ 'published_at' ];
 
+    protected $charsForTrim = ' \t\n\r\0\x0B';
 
     /**
+     * We modify published_at with carbon parse
+     *
      * @param $date
-     * mutators
-     * setNameAttribute
+     * mutator
      */
     public function setPublishedAtAttribute($date)
     {
         $this->attributes['published_at'] = Carbon::parse($date);
+    }
+
+    /**
+     * We clean the url style
+     *
+     * @param $url
+     * mutator
+     */
+    public function setUrlAttribute($url){
+        $url = strtolower(trim($url,$this->charsForTrim));
+        $this->attributes['url'] =  str_replace(' ','-',$url);
     }
 
     /**
@@ -49,6 +62,7 @@ class Article extends Model
         $now = Carbon::now()->toDateTimeString();
         $query->where('published_at', '>=', $now);
     }
+
 
     /**
      * An article is owned by a user.
