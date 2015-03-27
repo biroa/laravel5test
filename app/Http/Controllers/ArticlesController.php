@@ -11,13 +11,14 @@ class ArticlesController extends Controller
     /*
      * only || except
      *
+     * We force login to check articles in this way
      * ['index'=>'index']
      *
      */
 
     public function  __construct()
     {
-        $this->middleware('auth', [ 'except' => 'index' ]);
+        $this->middleware('auth', [ 'index' => 'index' ]);
     }
 
     /**
@@ -30,7 +31,7 @@ class ArticlesController extends Controller
 
         //$articles = Article::all();
         //get data based on order by desc
-//        return \Auth::user();
+        //return \Auth::user();
         $now = Carbon::now()->toDateTimeString();
         $articles = Article::latest('published_at')->published()->get();
 
@@ -45,7 +46,7 @@ class ArticlesController extends Controller
     public function create()
     {
         //Second argument to get the value as a key too eg:
-        // "multiselect  array id" => "name|id [of the record]"
+        //"multiselect  array id" => "name|id [of the record]"
         $tags = \App\Tag::lists('name', 'id');
 
         return view('articles.create', compact('tags'));
