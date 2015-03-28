@@ -15,6 +15,7 @@ class AddCategoryIdToArticlesTable extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             //Cascade setting
+            $table->integer('category_id')->unsigned();
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories')
