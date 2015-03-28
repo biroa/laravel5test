@@ -13,9 +13,11 @@
             <ul class="nav navbar-nav">
                 <li><a href="/articles">Articles</a></li>
             </ul>
+            @if($latest != null)
             <ul class="nav navbar-nav navbar-right">
                 <li>{!! link_to_action('ArticlesController@show',$latest->title,[$latest->id]) !!}</li>
             </ul>
+            @endif
         </div><!--/.nav-collapse -->
     </div>
 </nav>
