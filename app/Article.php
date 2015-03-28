@@ -74,6 +74,14 @@ class Article extends Model
         return $this->belongsTo('App\User');
     }
 
+    /**
+     * @return mixed
+     */
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
+
 
     /**
      * @param $date

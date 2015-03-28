@@ -34,7 +34,6 @@ class ArticlesController extends Controller
         //return \Auth::user();
         $now = Carbon::now()->toDateTimeString();
         $articles = Article::latest('published_at')->published()->get();
-
         return view('articles.index', compact('articles'));
     }
 
@@ -48,7 +47,6 @@ class ArticlesController extends Controller
         //Second argument to get the value as a key too eg:
         //"multiselect  array id" => "name|id [of the record]"
         $tags = \App\Tag::lists('name', 'id');
-
         return view('articles.create', compact('tags'));
     }
 

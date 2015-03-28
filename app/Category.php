@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     /**
-     * Fillable fields for tag. [mass assignment]
+     * Fillable fields for category. [mass assignment]
      * @var array
      */
     protected $fillable = [
@@ -16,5 +16,13 @@ class Category extends Model
         'body',
         'lead_img_src',
     ];
+
+    /**
+     * @return mixed
+     */
+    public function articles()
+    {
+        return $this->hasMany('App\Article');
+    }
 
 }
