@@ -15,11 +15,8 @@ class AddCategoryIdToArticlesTable extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             //Cascade setting
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('categories')
-                ->onDelete('cascade');
+            $table->integer('category_id')->unsigned()->index();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');//delete on cascade
         });
     }
 
@@ -31,6 +28,7 @@ class AddCategoryIdToArticlesTable extends Migration
     public function down()
     {
         Schema::table('articles', function (Blueprint $table) {
+            $table->dropForeign('category_id');
             $table->dropColumn('category_id');
         });
     }
