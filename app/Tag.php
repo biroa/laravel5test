@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     /**
-     * Fillable fields fot tag. [mass assignment]
+     * Fillable fields for tag. [mass assignment]
      * @var array
      */
     protected $fillable = [
