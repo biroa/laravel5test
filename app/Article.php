@@ -35,9 +35,10 @@ class Article extends Model
      * @param $url
      * mutator
      */
-    public function setUrlAttribute($url){
-        $url = strtolower(trim($url,$this->charsForTrim));
-        $this->attributes['url'] =  str_replace(' ','-',$url);
+    public function setUrlAttribute($url)
+    {
+        $url = strtolower(trim($url, $this->charsForTrim));
+        $this->attributes['url'] = str_replace(' ', '-', $url);
     }
 
     /**
@@ -75,15 +76,6 @@ class Article extends Model
     }
 
     /**
-     * @return mixed
-     */
-    public function category()
-    {
-        return $this->belongsTo('App\Category');
-    }
-
-
-    /**
      * @param $date
      *
      * @return mixed
@@ -116,6 +108,14 @@ class Article extends Model
     public function getTagListAttribute()
     {
         return $this->tag->lists('id');
+    }
+
+    /**
+     * @return mixed
+     */
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
     }
 
 }
