@@ -24,7 +24,7 @@
 
 
 <div class="form-group">
-    {!! Form::label('published_at','Article title') !!}
+    {!! Form::label('published_at','Published at') !!}
     {!!
     Form::input('date','published_at',$article->published_at,['class'=>'form-control'])
     !!}
