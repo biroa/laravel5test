@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use App\Article;
+
 class WelcomeController extends Controller
 {
 
@@ -31,7 +34,10 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $now = Carbon::now()->toDateTimeString();
+        $articles = Article::latest('published_at')->published()->get();
+        return view('public.index', compact('articles'));
+
     }
 
 }

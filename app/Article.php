@@ -11,6 +11,7 @@ class Article extends Model
         'excerpt',
         'body',
         'published_at',
+        'category_id'
     ];
 
     //Convert date to Carbon instance
