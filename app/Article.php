@@ -139,7 +139,7 @@ class Article extends Model
      * @return mixed
      */
     public function scopeGetOneByName($query,$text){
-        $articles =  $query->where('url','=','adam-article')->get()->toArray();
+        $articles =  $query->where('url','=', $text)->get()->toArray();
         return $articles;
     }
 
