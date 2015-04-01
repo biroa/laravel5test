@@ -119,10 +119,27 @@ class Article extends Model
         return $this->belongsTo('App\Category');
     }
 
-
+    /**
+     * Get all article for public and restricted
+     *
+     * @return mixed
+     */
     public function scopeGetAll(){
         $now = Carbon::now()->toDateTimeString();
         $articles = Article::latest('published_at')->published()->get();
+        return $articles;
+    }
+
+    /**
+     *
+     *
+     * @param $query
+     * @param $text
+     *
+     * @return mixed
+     */
+    public function scopeGetOneByName($query,$text){
+        $articles =  $query->where('url','=','adam-article')->get()->toArray();
         return $articles;
     }
 

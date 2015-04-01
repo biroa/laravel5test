@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Http\Requests\Request;
 use Carbon\Carbon;
 use App\Article;
 
@@ -37,6 +38,16 @@ class WelcomeController extends Controller
         $articles = Article::getAll();
         return view('public.index', compact('articles'));
 
+    }
+
+    /**
+     * @param $text
+     */
+    public function show($text)
+    {
+        $article = Article::getOneByName($text);
+        //Todo::create the specific template
+        dd($article);
     }
 
 }
