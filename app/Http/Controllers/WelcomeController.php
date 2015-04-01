@@ -34,9 +34,7 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $now = Carbon::now()->toDateTimeString();
-        $articles = Article::latest('published_at')->published()->get();
-        return view('public.index', compact('articles'));
+        return Article::getAll();
 
     }
 

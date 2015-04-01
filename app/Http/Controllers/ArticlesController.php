@@ -32,9 +32,8 @@ class ArticlesController extends Controller
         //$articles = Article::all();
         //get data based on order by desc
         //return \Auth::user();
-        $now = Carbon::now()->toDateTimeString();
-        $articles = Article::latest('published_at')->published()->get();
-        return view('articles.index', compact('articles'));
+
+        return Article::getAll();
     }
 
     /**
