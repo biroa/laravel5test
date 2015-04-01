@@ -32,8 +32,8 @@ class ArticlesController extends Controller
         //$articles = Article::all();
         //get data based on order by desc
         //return \Auth::user();
-
-        return Article::getAll();
+        $articles = Article::getAll();
+        return view('articles.index', compact('articles'));
     }
 
     /**

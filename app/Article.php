@@ -123,7 +123,7 @@ class Article extends Model
     public function scopeGetAll(){
         $now = Carbon::now()->toDateTimeString();
         $articles = Article::latest('published_at')->published()->get();
-        return view('articles.index', compact('articles'));
+        return $articles;
     }
 
 }

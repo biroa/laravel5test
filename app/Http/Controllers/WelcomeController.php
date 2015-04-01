@@ -34,7 +34,8 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        return Article::getAll();
+        $articles = Article::getAll();
+        return view('public.index', compact('articles'));
 
     }
 
