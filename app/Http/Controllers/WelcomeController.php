@@ -41,6 +41,9 @@ class WelcomeController extends Controller
     }
 
     /**
+     * Get Articles by url based on getOneByName
+     * function
+     *
      * @param $text
      */
     public function show($text)
