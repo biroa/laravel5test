@@ -51,6 +51,7 @@ class WelcomeController extends Controller
         $article = Article::getOneByName($text);
         //Todo::create the specific template
         dd($article);
+        return view('public.article', compact('article'));
     }
 
 }
