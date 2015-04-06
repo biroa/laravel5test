@@ -9,11 +9,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Blog</a>
+            <a class="navbar-brand" href="/">Basic CMS</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/articles">Articles</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="/categories">Categories</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="/tags">Tags</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
