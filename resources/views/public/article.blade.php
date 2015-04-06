@@ -4,8 +4,8 @@
     <h1>Articles</h1>
     @foreach ($article as $value)
         <article>
-            <h2>{{ $value['title'] }}
-            </h2>
+            <h2>{{ $value['title'] }}</h2>
+            <h4>Category: {{ $value['category']['name'] }}</h4>
             <div class="excerpt">{{ $value['excerpt'] }}</div>
             <div class="body">{{ $value['body'] }}</div>
             <div class="published_at">{{ $value['published_at'] }}</div>
