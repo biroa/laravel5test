@@ -9,6 +9,14 @@
             <div class="excerpt">{{ $value['excerpt'] }}</div>
             <div class="body">{{ $value['body'] }}</div>
             <div class="published_at">{{ $value['published_at'] }}</div>
+                <h5>Tags:</h5>
+                <ul>
+                    @foreach($value['tag'] as $tag)
+                        <li>
+                            {{ $tag['name'] }}
+                        </li>
+                    @endforeach
+                </ul>
         </article>
     @endforeach
 @stop
