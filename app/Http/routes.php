@@ -16,6 +16,7 @@ Route::get('article/{text}','WelcomeController@show');
 Route::get('home', 'HomeController@index');
 Route::resource('articles','ArticlesController');
 Route::resource('tags','TagsController');
+Route::resource('categories','CategoriesController');
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
