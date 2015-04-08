@@ -28,7 +28,6 @@ class Category extends Model
 
     /**
      * Get all categories
-     *
      * @return mixed
      */
     public function scopeGetAll()
@@ -36,5 +35,18 @@ class Category extends Model
         $categories = Category::all();
 
         return $categories;
+    }
+
+    /**
+     * Get one category
+     *
+     * @param $query
+     * @param $id
+     *
+     * @return mixed
+     */
+    public function scopeGetOneById($query, $id)
+    {
+        return $query->findOrFail($id);
     }
 }
