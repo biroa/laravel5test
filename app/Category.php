@@ -6,6 +6,7 @@ class Category extends Model
 {
     /**
      * Fillable fields for category. [mass assignment]
+     *
      * @var array
      */
     protected $fillable = [
@@ -25,4 +26,15 @@ class Category extends Model
         return $this->hasMany('App\Article');
     }
 
+    /**
+     * Get all categories
+     *
+     * @return mixed
+     */
+    public function scopeGetAll()
+    {
+        $categories = Category::all();
+
+        return $categories;
+    }
 }

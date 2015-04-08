@@ -1,8 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller {
@@ -15,7 +15,9 @@ class CategoriesController extends Controller {
 	public function index()
 	{
 		//
-        dd('categories');
+        $categories = Category::getAll();
+        dd($categories);
+//        return view('categories.index', compact('categories'));
 	}
 
 	/**
