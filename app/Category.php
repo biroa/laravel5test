@@ -38,7 +38,7 @@ class Category extends Model
     }
 
     /**
-     * Get one category
+     * Get one category by id
      *
      * @param $query
      * @param $id
