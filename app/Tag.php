@@ -17,4 +17,7 @@ class Tag extends Model
         return $this->belongsToMany('App\Article');
     }
 
+    public function scopeGetAll(){
+        return Tag::All();
+    }
 }
