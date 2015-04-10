@@ -120,13 +120,13 @@ class Article extends Model
     }
 
     /**
-     * Get all article for public and restricted
+     * Get all article for public and restricted with relations
      *
      * @return mixed
      */
     public function scopeGetAll(){
         $now = Carbon::now()->toDateTimeString();
-        $articles = Article::latest('published_at')->published()->get();
+        $articles = Article::latest('published_at')->published()->with('tag')->with('category')->get();
         return $articles;
     }
 
