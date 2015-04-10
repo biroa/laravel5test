@@ -39,11 +39,13 @@ class RouteServiceProvider extends ServiceProvider
 
         });
 
-        $router->bind('tags',function($name){
 
-            return Tag::where('name','=',$name)->firstOrFail();
+            $router->bind('tags',function($name){
+                if(!is_numeric($name)){
+                    return Tag::where('name','=',$name)->firstOrFail();
+                }
+            });
 
-        });
 
 
 
