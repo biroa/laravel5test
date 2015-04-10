@@ -14,7 +14,8 @@ class TagsController extends Controller
      */
     public function index()
     {
-        $tag =  Tag::getAll();
+        $tag = Tag::getAll();
+
         return $tag;
     }
 
