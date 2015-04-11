@@ -7,7 +7,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading" translate>
-                    user_page.SLUG_USER_LIST
+                   List of Articles
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
