@@ -33,6 +33,7 @@ class ArticlesController extends Controller
         //get data based on order by desc
         //return \Auth::user();
         $articles = Article::getAll();
+
         return view('articles.index', compact('articles'));
     }
 
@@ -46,6 +47,7 @@ class ArticlesController extends Controller
         //Second argument to get the value as a key too eg:
         //"multiselect  array id" => "name|id [of the record]"
         $tags = \App\Tag::lists('name', 'id');
+
         return view('articles.create', compact('tags'));
     }
 
