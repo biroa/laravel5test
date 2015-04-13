@@ -16,8 +16,7 @@ class CategoriesController extends Controller
     {
         //
         $categories = Category::getAll();
-//        return view('categories.index', compact('categories'));
-        dd($categories);
+        return view('categories.index', compact('categories'));
     }
 
     /**
