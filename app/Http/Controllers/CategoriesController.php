@@ -16,8 +16,8 @@ class CategoriesController extends Controller
     {
         //
         $categories = Category::getAll();
-        dd($categories);
 //        return view('categories.index', compact('categories'));
+        dd($categories);
     }
 
     /**
@@ -50,6 +50,7 @@ class CategoriesController extends Controller
     public function show($id)
     {
         $category = Category::getOneById($id);
+
         return $category;
     }
 
