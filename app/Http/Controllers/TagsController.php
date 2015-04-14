@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 class TagsController extends Controller
 {
 
+    /*
+     * set authentication for all method of this TagsController
+     */
     public function  __construct()
     {
         $this->middleware('auth');
