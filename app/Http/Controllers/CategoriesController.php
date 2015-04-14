@@ -8,6 +8,14 @@ class CategoriesController extends Controller
 {
 
     /**
+     *
+     */
+    public function  __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return Response
@@ -16,6 +24,7 @@ class CategoriesController extends Controller
     {
         //
         $categories = Category::getAll();
+
         return view('categories.index', compact('categories'));
     }
 
