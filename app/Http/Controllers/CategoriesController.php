@@ -8,7 +8,7 @@ class CategoriesController extends Controller
 {
 
     /**
-     *
+     * set authentication for all method of this category
      */
     public function  __construct()
     {
