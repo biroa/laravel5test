@@ -23,6 +23,7 @@ class TagsController extends Controller
     public function index()
     {
         $tags = Tag::getAll();
+
         return view('tags.index', compact('tags'));
     }
 
@@ -58,6 +59,7 @@ class TagsController extends Controller
     public function show(Tag $tag)
     {
         $articles = $tag->articles()->published()->get();
+
         return view('articles.index', compact('articles'));
     }
 
