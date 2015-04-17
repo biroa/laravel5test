@@ -5,8 +5,8 @@
 
     <hr/>
 
-    {!! Form::model($category ,['method' => 'PATCH',  'action' => ['CategoriesController@update' , Scategory->id ] ]) !!}
-        <!-- Form partial we include -->
+    {!! Form::model($category ,['method' => 'PATCH',  'action' => ['CategoriesController@update' , $category->id ] ]) !!}
+    @include('categories.partials._form',['submitButtonText'=> 'Update Category'])
     {!! Form::close() !!}
 
     @include('errors.list')
