@@ -32,7 +32,7 @@
                                     <td>{{$category->short_lead}}</td>
                                     <td>{{$category->updated_at}}</td>
                                     <td>{{$category->created_at}}</td>
-                                    <td><a href=<?='/articles/' . $category->id . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
+                                    <td><a href=<?='/categories/' . $category->id . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
                                 </tr>
                             @endforeach
                             </tbody>
