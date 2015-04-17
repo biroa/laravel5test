@@ -71,7 +71,9 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::getOneById($id);
+
+        return view('categories.edit', compact('category'));
     }
 
     /**

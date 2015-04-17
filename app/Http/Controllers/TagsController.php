@@ -70,9 +70,9 @@ class TagsController extends Controller
      *
      * @return Response
      */
-    public function edit($id)
+    public function edit(Tag $tag)
     {
-        //
+        // We are going to handle the request
     }
 
     /**
