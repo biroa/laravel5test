@@ -83,7 +83,7 @@ class CategoriesController extends Controller
      *
      * @return Response
      */
-    public function update($id, ArticleRequest $request)
+    public function update($id, CategoryRequest $request)
     {
         $category = new Category();
         $category->update($request->all());
