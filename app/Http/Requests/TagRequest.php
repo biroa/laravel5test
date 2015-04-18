@@ -1,6 +1,6 @@
 <?php namespace App\Http\Requests;
 
-class CreateTagRequest extends Request
+class TagRequest extends Request
 {
 
     /**

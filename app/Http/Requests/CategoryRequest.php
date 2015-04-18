@@ -1,6 +1,6 @@
 <?php namespace App\Http\Requests;
 
-class CreateCategoryRequest extends Request
+class CategoryRequest extends Request
 {
 
     /**
