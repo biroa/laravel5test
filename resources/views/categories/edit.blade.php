@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    <h1>Edit: <!-- category name --></h1>
+    <h1>Edit: {!! $category->name !!}</h1>
 
     <hr/>
 

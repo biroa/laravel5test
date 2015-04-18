@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Category;
-use App\Http\Requests;
+use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -83,9 +83,11 @@ class CategoriesController extends Controller
      *
      * @return Response
      */
-    public function update($id)
+    public function update($id, ArticleRequest $request)
     {
-        //
+        $category = new Category();
+        $category->update($request->all());
+        return redirect('categories');
     }
 
     /**
