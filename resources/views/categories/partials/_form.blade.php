@@ -13,8 +13,13 @@
 
 <div class="form-group">
     {!! Form::label('lead','Lead') !!}
-    {!! Form::textarea('body',$category->lead,['class'=>'form-control']) !!}
+    {!! Form::textarea('lead',$category->lead,['class'=>'form-control']) !!}
 </div>
+
+<div class="form-group">
+    {!! Form::label('body','Body') !!}
+    {!! Form::textarea('body',$category->body,['class'=>'form-control']) !!}
+</div
 
 <div class="form-group">
     {!! Form::label('description','Description') !!}

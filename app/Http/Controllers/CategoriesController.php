@@ -2,6 +2,7 @@
 
 use App\Category;
 use App\Http\Requests\CategoryRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -85,8 +86,9 @@ class CategoriesController extends Controller
      */
     public function update($id, CategoryRequest $request)
     {
-        $category = new Category();
-        $category->update($request->all());
+        $category = Category::getOneById($id);
+        //Todo:: This is a temp way ... There has to be a better one.
+        $category->update($request->only('name','short_lead','lead','body','description'));
         return redirect('categories');
     }
 
