@@ -10,7 +10,7 @@ class CreateCategoryRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,7 +21,11 @@ class CreateCategoryRequest extends Request
     public function rules()
     {
         return [
-            //
+            name =>'required|min:3',
+            short_lead =>'required|min:50',
+            lead =>'required|min:100',
+            description =>'required|min:100',
+
         ];
     }
 

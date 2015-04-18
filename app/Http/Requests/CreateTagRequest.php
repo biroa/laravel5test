@@ -10,7 +10,7 @@ class CreateTagRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class CreateTagRequest extends Request
     public function rules()
     {
         return [
-            //
+            name =>'required|min:2',
         ];
     }
 
