@@ -1,8 +1,14 @@
 @extends('app')
 
 @section('content')
-    <h1>Categories</h1>
-
+    <div class="row">
+        <div class="col-lg-6 text-left">
+            <h1>Categories</h1>
+        </div>
+        <div class="col-lg-6 text-right">
+            <a href="/categories/create" class="btn btn-primary" role="button">Create Category</a>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
