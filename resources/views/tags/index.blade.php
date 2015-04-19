@@ -1,7 +1,14 @@
 @extends('app')
 
 @section('content')
-    <h1>Tags</h1>
+    <div class="row">
+        <div class="col-lg-6 text-left">
+            <h1>Tags</h1>
+        </div>
+        <div class="col-lg-6 text-right">
+            <a href="/tags/create" class="btn btn-primary" role="button">Create Tag</a>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-lg-12">
