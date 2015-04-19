@@ -72,7 +72,8 @@ class TagsController extends Controller
      */
     public function edit(Tag $tag)
     {
-        // We are going to handle the request
+        $tags = (object) $tag->getAttributes();
+        return view('tags.edit', compact('tags'));
     }
 
     /**
