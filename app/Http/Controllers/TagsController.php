@@ -70,10 +70,13 @@ class TagsController extends Controller
      *
      * @return Response
      */
-    public function edit(Tag $tag)
+    public function edit(Request $request)
     {
-        $tags = (object) $tag->getAttributes();
+        $id = $request->segment(2);
+        $tags = Tag::getOneById($id);
         return view('tags.edit', compact('tags'));
+
+
     }
 
     /**
