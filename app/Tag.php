@@ -35,7 +35,7 @@ class Tag extends Model
      *
      * @return mixed
      */
-    public function scopeConvertReceivedObj($obj)
+    public function scopeGetOneById($query, $id)
     {
         return $query->findOrFail($id);
     }
