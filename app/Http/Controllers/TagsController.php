@@ -64,11 +64,9 @@ class TagsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * @param \Illuminate\Http\Request $request
      *
-     * @param  int $id
-     *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function edit(Request $request)
     {
