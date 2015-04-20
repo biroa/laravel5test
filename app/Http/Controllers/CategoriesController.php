@@ -64,11 +64,9 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * @param int $id
      *
-     * @param  int $id
-     *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function edit($id)
     {
@@ -78,11 +76,10 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * @param int $id
+     * @param \App\Http\Requests\CategoryRequest $request
      *
-     * @param  int $id
-     *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update($id, CategoryRequest $request)
     {
