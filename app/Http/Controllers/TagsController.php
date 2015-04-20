@@ -80,15 +80,16 @@ class TagsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * @param \Illuminate\Http\Request $request
      *
-     * @param  int $id
-     *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update($id)
+    public function update(Request $request)
     {
-        //
+        $id = $request->segment(2);
+        $tags = Tag::getOneById($id);
+        $tags->update($request->only('name'));
+        return redirect('tags');
     }
 
     /**
