@@ -1,6 +1,5 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests\TagRequest;
 use App\Tag;
 use Illuminate\Http\Request;
 
@@ -72,6 +71,7 @@ class TagsController extends Controller
     {
         $id = $request->segment(2);
         $tags = Tag::getOneById($id);
+
         return view('tags.edit', compact('tags'));
 
 
@@ -87,6 +87,7 @@ class TagsController extends Controller
         $id = $request->segment(2);
         $tags = Tag::getOneById($id);
         $tags->update($request->only('name'));
+
         return redirect('tags');
     }
 
