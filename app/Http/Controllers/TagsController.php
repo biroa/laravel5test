@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Http\Requests\TagRequest;
 use App\Tag;
 use Illuminate\Http\Request;
 
@@ -41,9 +42,15 @@ class TagsController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Tag $tag)
     {
-        //
+        //Todo:: write the logic to this method
+        //$this->createTag();
+
+        //We use the laracasts service providers
+        flash()->success('Your article has been created');
+
+        return redirect('tags');
     }
 
     /**

@@ -45,9 +45,15 @@ class CategoriesController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(CategoryRequest $categoryRequest)
     {
-        //
+        //Todo:: write the logic to this method
+        //$this->createCategory($request);
+
+        //We use the laracasts service providers
+        flash()->success('Your article has been created');
+
+        return redirect('categories');
     }
 
     /**
