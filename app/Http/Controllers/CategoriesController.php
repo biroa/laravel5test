@@ -2,8 +2,6 @@
 
 use App\Category;
 use App\Http\Requests\CategoryRequest;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
@@ -83,7 +81,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * @param int $id
+     * @param int                                $id
      * @param \App\Http\Requests\CategoryRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
@@ -92,7 +90,8 @@ class CategoriesController extends Controller
     {
         $category = Category::getOneById($id);
         //Todo:: This is a temp way ... There has to be a better one.
-        $category->update($request->only('name','short_lead','lead','body','description'));
+        $category->update($request->only('name', 'short_lead', 'lead', 'body', 'description'));
+
         return redirect('categories');
     }
 

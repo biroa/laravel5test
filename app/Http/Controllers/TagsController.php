@@ -1,6 +1,5 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests\TagRequest;
 use App\Tag;
 use Illuminate\Http\Request;
 
