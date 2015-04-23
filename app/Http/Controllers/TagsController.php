@@ -41,12 +41,10 @@ class TagsController extends Controller
      *
      * @return Response
      */
-    public function store(Tag $tag)
+    public function store(Tag $tag, Request $request)
     {
-        //Todo:: write the logic to this method
-        //$this->createTag();
-
-        //We use the laracasts service providers
+        $tag->create($request->only('name'));
+        //We use the Laracasts service providers
         flash()->success('Your article has been created');
 
         return redirect('tags');
