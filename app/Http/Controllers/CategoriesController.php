@@ -2,6 +2,7 @@
 
 use App\Category;
 use App\Http\Requests\CategoryRequest;
+use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
@@ -43,11 +44,9 @@ class CategoriesController extends Controller
      *
      * @return Response
      */
-    public function store(CategoryRequest $categoryRequest)
+    public function store(Request $request, Category $category)
     {
-        //Todo:: write the logic to this method
-        //$this->createCategory($request);
-
+        $category->create($request->only('name', 'short_lead', 'lead', 'body', 'description'));
         //We use the laracasts service providers
         flash()->success('Your article has been created');
 
