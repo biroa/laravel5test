@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Article;
+use App\Category;
 use App\Http\Requests\ArticleRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -47,8 +48,8 @@ class ArticlesController extends Controller
         //Second argument to get the value as a key too eg:
         //"multiselect  array id" => "name|id [of the record]"
         $tags = \App\Tag::lists('name', 'id');
-
-        return view('articles.create', compact('tags'));
+        $category = Category::getAll();
+        return view('articles.create', compact('tags','category'));
     }
 
     /**
