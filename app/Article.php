@@ -124,9 +124,11 @@ class Article extends Model
      *
      * @return mixed
      */
-    public function scopeGetAll(){
+    public function scopeGetAll()
+    {
         $now = Carbon::now()->toDateTimeString();
         $articles = Article::latest('published_at')->published()->with('tag')->with('category')->get();
+
         return $articles;
     }
 
@@ -138,8 +140,10 @@ class Article extends Model
      *
      * @return mixed
      */
-    public function scopeGetOneByName($query,$text){
-        $articles =  $query->where('url','=', $text)->with('tag')->with('category')->get()->toArray();
+    public function scopeGetOneByName($query, $text)
+    {
+        $articles = $query->where('url', '=', $text)->with('tag')->with('category')->get()->toArray();
+
         return $articles;
     }
 
