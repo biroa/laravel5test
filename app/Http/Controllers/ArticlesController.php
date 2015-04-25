@@ -48,7 +48,7 @@ class ArticlesController extends Controller
         //Second argument to get the value as a key too eg:
         //"multiselect  array id" => "name|id [of the record]"
         $tags = \App\Tag::lists('name', 'id');
-        $category = Category::getAll();
+        $category = Category::GetAllSelectable();
         return view('articles.create', compact('tags','category'));
     }
 
