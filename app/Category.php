@@ -51,6 +51,11 @@ class Category extends Model
         return $query->findOrFail($id);
     }
 
+    /**
+     * get name,id pair list for the SelectBox
+     *
+     * @return mixed
+     */
     function scopeGetAllSelectable()
     {
         $categories = Category::lists('id', 'name');
