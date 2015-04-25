@@ -32,6 +32,12 @@
     !!}
 </div>
 <div class="form-group">
+    {!! Form::label('category_id','Tags') !!}
+    {!!
+    Form::select('category_id[]',$tags,null,['id'=>'$category','class'=>'form-control'])
+    !!}
+</div>
+<div class="form-group">
     {!! Form::label('tag_list','Tags') !!}
     {!!
     Form::select('tag_list[]',$tags,null,['id'=>'tag_list','class'=>'form-control','multiple'=>'multiple'])
