@@ -58,7 +58,7 @@ class Category extends Model
      */
     function scopeGetAllSelectable()
     {
-        $categories = Category::lists('id', 'name');
+        $categories = Category::lists('name', 'id');
 
         return $categories;
     }

@@ -22,9 +22,6 @@
     {!! Form::textarea('body',null,['class'=>'form-control']) !!}
 </div>
 
-{!! Form::input('hidden','category_id',2,['class'=>'form-control']) !!}
-
-
 <div class="form-group">
     {!! Form::label('published_at','Published at') !!}
     {!!
@@ -34,7 +31,7 @@
 <div class="form-group">
     {!! Form::label('category_id','Tags') !!}
     {!!
-    Form::select('category_id[]',$tags,null,['id'=>'$category','class'=>'form-control'])
+    Form::select('category_id[]',$category,null,['id'=>'$category','class'=>'form-control'])
     !!}
 </div>
 <div class="form-group">
