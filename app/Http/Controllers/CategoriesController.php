@@ -46,7 +46,7 @@ class CategoriesController extends Controller
      */
     public function store(Request $request, Category $category)
     {
-        $category->create($request->only('name', 'short_lead', 'lead', 'body', 'description'));
+        $category->create($request->only('name', 'short_lead', 'lead', 'body', 'description', 'category_id'));
         //We use the laracasts service providers
         flash()->success('Your article has been created');
 
