@@ -104,10 +104,11 @@ class ArticlesController extends Controller
 
     public function edit(Article $article)
     {
+
         //$article = Article::findOrFail($id);
         $tags = \App\Tag::lists('name', 'id');
-
-        return view('articles.edit', compact('article', 'tags'));
+        $category = Category::GetAllSelectable();
+        return view('articles.edit', compact('article', 'tags','category'));
     }
 
 
