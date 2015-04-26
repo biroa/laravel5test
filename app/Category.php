@@ -16,6 +16,7 @@ class Category extends Model
         'description',
         'body',
         'lead_img_src',
+        'category_id'
     ];
 
     /**
