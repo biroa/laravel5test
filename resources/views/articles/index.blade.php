@@ -46,6 +46,7 @@
                         </table>
                     </div>
                     <!-- /.table-responsive -->
+                    <?php echo $articles->render(); ?>
                 </div>
                 <!-- /.panel-body -->
             </div>
