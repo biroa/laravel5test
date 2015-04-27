@@ -45,6 +45,7 @@
                         </table>
                     </div>
                     <!-- /.table-responsive -->
+                    <?php echo $categories->render(); ?>
                 </div>
                 <!-- /.panel-body -->
             </div>
