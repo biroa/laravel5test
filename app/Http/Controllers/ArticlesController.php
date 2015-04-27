@@ -33,7 +33,7 @@ class ArticlesController extends Controller
         //$articles = Article::all();
         //get data based on order by desc
         //return \Auth::user();
-        $articles = Article::getAll();
+        $articles = Article::getPaginated(5);
 
         return view('articles.index', compact('articles'));
     }
