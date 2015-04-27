@@ -133,6 +133,21 @@ class Article extends Model
     }
 
     /**
+     * Paginate articles
+     *
+     * @param     $query
+     * @param int $howMany
+     *
+     * @return mixed
+     */
+    public function scopeGetPaginated($query, $howMany = 25){
+        $now = Carbon::now()->toDateTimeString();
+        $articles = Article::latest('published_at')->published()->with('tag')->with('category')->paginate($howMany);
+
+        return $articles;
+    }
+
+    /**
      *
      *
      * @param $query
