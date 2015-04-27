@@ -57,10 +57,25 @@ class Category extends Model
      *
      * @return mixed
      */
-    function scopeGetAllSelectable()
+    public function scopeGetAllSelectable()
     {
         $categories = Category::lists('name', 'id');
 
         return $categories;
     }
+
+    /**
+     * Paginate categories
+     *
+     * @param     $query
+     * @param int $howMany
+     *
+     * @return mixed
+     */
+    public function scopeGetPaginated($query, $howMany = 25){
+        $categories = Category::paginate($howMany);
+
+        return $categories;
+    }
+
 }
