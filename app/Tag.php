@@ -39,4 +39,16 @@ class Tag extends Model
     {
         return $query->findOrFail($id);
     }
+
+    /**
+     * Pagination for tags
+     *
+     * @param     $query
+     * @param int $howMany
+     *
+     * @return mixed
+     */
+    public function scopeGetPaginated($query, $howMany = 25){
+        return $this->paginate($howMany);
+    }
 }
