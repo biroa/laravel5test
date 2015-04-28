@@ -44,6 +44,7 @@
                         </table>
                     </div>
                     <!-- /.table-responsive -->
+                    <?php echo $tags->render(); ?>
                 </div>
                 <!-- /.panel-body -->
             </div>
