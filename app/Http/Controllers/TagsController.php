@@ -21,7 +21,7 @@ class TagsController extends Controller
      */
     public function index()
     {
-        $tags = Tag::getAll();
+        $tags = Tag::getPaginated(2);
 
         return view('tags.index', compact('tags'));
     }
