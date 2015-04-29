@@ -34,7 +34,7 @@ class Article extends Model
      * We clean the url style
      *
      * @param $url
-     * mutator
+     *
      */
     public function setUrlAttribute($url)
     {
@@ -43,9 +43,10 @@ class Article extends Model
     }
 
     /**
+     * get already published Articles
+     *
      * @param $query
      *
-     *  set query Scopes
      */
     public function scopePublished($query)
     {
@@ -55,9 +56,10 @@ class Article extends Model
 
 
     /**
+     * get still unpublished Articles
+     *
      * @param $query
      *
-     * set query Scopes
      */
     public function scopeUnpublished($query)
     {
@@ -70,6 +72,7 @@ class Article extends Model
      * An article is owned by a user.
      *
      * @return mixed
+     *
      */
     public function user()
     {
@@ -77,11 +80,11 @@ class Article extends Model
     }
 
     /**
-     * @param $date
+     * convert $date param to a Carbon instance
      *
+     * @param $date
      * @return mixed
      *
-     * New get mutators to provide an instance of carbon
      */
     public function getPublishedAtAttribute($date)
     {
@@ -112,7 +115,10 @@ class Article extends Model
     }
 
     /**
-     * @return mixed
+     * One Category belongs to Many Article
+     * One Article has one category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function category()
     {
@@ -140,7 +146,8 @@ class Article extends Model
      *
      * @return mixed
      */
-    public function scopeGetPaginated($query, $howMany = 25){
+    public function scopeGetPaginated($query, $howMany = 25)
+    {
         $now = Carbon::now()->toDateTimeString();
         $articles = Article::latest('published_at')->published()->with('tag')->with('category')->paginate($howMany);
 
@@ -148,7 +155,7 @@ class Article extends Model
     }
 
     /**
-     *
+     * Get the specific article based on the url
      *
      * @param $query
      * @param $text
