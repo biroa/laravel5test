@@ -20,7 +20,10 @@ class Category extends Model
     ];
 
     /**
-     * @return mixed
+     * One Category hasMAny Articles
+     * One Article has only one category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function articles()
     {
@@ -72,7 +75,8 @@ class Category extends Model
      *
      * @return mixed
      */
-    public function scopeGetPaginated($query, $howMany = 25){
+    public function scopeGetPaginated($query, $howMany = 25)
+    {
         $categories = Category::paginate($howMany);
 
         return $categories;
