@@ -17,6 +17,7 @@ class Article extends Model
     //Convert date to Carbon instance
     protected $dates = [ 'published_at' ];
 
+    //Rules for trim
     protected $charsForTrim = ' \t\n\r\0\x0B';
 
     /**
@@ -83,6 +84,7 @@ class Article extends Model
      * convert $date param to a Carbon instance
      *
      * @param $date
+     *
      * @return mixed
      *
      */
