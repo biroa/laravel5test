@@ -12,18 +12,23 @@ class Tag extends Model
         'name'
     ];
 
-    /*
-     *  Tags can belong to more articles
+    /**
+     * One tag belongs to Many Article
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function articles()
     {
         return $this->belongsToMany('App\Article');
     }
 
-    /*
-     *  get all tags
+    /**
+     * Get all tags
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function scopeGetAll(){
+    public function scopeGetAll()
+    {
         return Tag::All();
     }
 
@@ -48,7 +53,8 @@ class Tag extends Model
      *
      * @return mixed
      */
-    public function scopeGetPaginated($query, $howMany = 25){
+    public function scopeGetPaginated($query, $howMany = 25)
+    {
         return $this->paginate($howMany);
     }
 }
