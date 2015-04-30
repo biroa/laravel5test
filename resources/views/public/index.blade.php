@@ -11,4 +11,5 @@
             <div class="body">{{$article->body}}</div>
         </article>
     @endforeach
+    <?php echo $articles->render(); ?>
 @stop
