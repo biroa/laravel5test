@@ -34,7 +34,7 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $articles = Article::getAll();
+        $articles = Article::getPaginated(2);
 
         return view('public.index', compact('articles'));
 
