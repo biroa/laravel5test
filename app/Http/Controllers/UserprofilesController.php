@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Userprofile;
 
 class UserprofilesController extends Controller
 {
@@ -12,7 +13,8 @@ class UserprofilesController extends Controller
      */
     public function index()
     {
-        return view('userprofiles.index');
+        $users = Userprofile::getAll();
+        return view('userprofiles.index',compact('users'));
     }
 
     /**
