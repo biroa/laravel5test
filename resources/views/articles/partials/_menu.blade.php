@@ -13,6 +13,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
+                <li><a href="/userprofiles">Users Profile</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
                 <li><a href="/articles">Articles</a></li>
             </ul>
             <ul class="nav navbar-nav">
