@@ -29,4 +29,10 @@ class Userprofile extends Model
 
     }
 
+    public function scopeGetPaginated($query, $howMany = 25)
+    {
+        return $this->paginate($howMany);
+
+    }
+
 }
