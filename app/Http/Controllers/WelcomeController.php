@@ -1,7 +1,6 @@
 <?php namespace App\Http\Controllers;
 
 use App\Article;
-use Carbon\Carbon;
 
 class WelcomeController extends Controller
 {

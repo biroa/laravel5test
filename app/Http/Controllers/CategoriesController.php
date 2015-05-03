@@ -82,8 +82,9 @@ class CategoriesController extends Controller
     /**
      * Update the specified resource.
      *
-     * @param int $id
+     * @param int                                $id
      * @param \App\Http\Requests\CategoryRequest $request
+     *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update($id, CategoryRequest $request)

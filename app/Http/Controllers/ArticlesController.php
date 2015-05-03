@@ -3,8 +3,6 @@
 use App\Article;
 use App\Category;
 use App\Http\Requests\ArticleRequest;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
@@ -49,7 +47,8 @@ class ArticlesController extends Controller
         //"multiselect  array id" => "name|id [of the record]"
         $tags = \App\Tag::lists('name', 'id');
         $category = Category::GetAllSelectable();
-        return view('articles.create', compact('tags','category'));
+
+        return view('articles.create', compact('tags', 'category'));
     }
 
     /**
@@ -108,7 +107,8 @@ class ArticlesController extends Controller
         //$article = Article::findOrFail($id);
         $tags = \App\Tag::lists('name', 'id');
         $category = Category::GetAllSelectable();
-        return view('articles.edit', compact('article', 'tags','category'));
+
+        return view('articles.edit', compact('article', 'tags', 'category'));
     }
 
 
