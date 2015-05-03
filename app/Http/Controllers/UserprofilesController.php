@@ -46,7 +46,7 @@ class UserprofilesController extends Controller
      */
     public function show($id)
     {
-        //
+        dd('show');
     }
 
     /**
@@ -58,7 +58,8 @@ class UserprofilesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = Userprofile::getOneById($id);
+        dd($users);
     }
 
     /**
@@ -70,7 +71,7 @@ class UserprofilesController extends Controller
      */
     public function update($id)
     {
-        //
+        dd('update');
     }
 
     /**
