@@ -12,7 +12,7 @@ class UserprofilesController extends Controller
      */
     public function index()
     {
-        dd('userprofiles');
+        return view('userprofiles.index');
     }
 
     /**
