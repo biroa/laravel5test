@@ -53,7 +53,7 @@
                                     {{--<td>{{$user->state}}</td>--}}
                                     {{--<td>{{$user->updated_at}}</td>--}}
                                     {{--<td>{{$user->created_at}}</td>--}}
-                                    <td><a href=<?='/categories/' . $user->id . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
+                                    <td><a href=<?='/userprofiles/' . $user->id . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
                                 </tr>
                             @endforeach
                             </tbody>
