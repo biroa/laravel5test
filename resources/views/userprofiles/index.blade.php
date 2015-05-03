@@ -59,9 +59,9 @@
                             </tbody>
                         </table>
                     </div>
+                    <?php echo $users->render(); ?>
                     </div>
                     <!-- /.table-responsive -->
-
                 </div>
                 <!-- /.panel-body -->
             </div>
