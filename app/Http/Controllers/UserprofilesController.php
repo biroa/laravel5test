@@ -59,7 +59,6 @@ class UserprofilesController extends Controller
     public function edit($id)
     {
         $users = Userprofile::getOneById($id);
-        dd($users);
     }
 
     /**
