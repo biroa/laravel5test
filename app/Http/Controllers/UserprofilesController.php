@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Userprofile;
 
 class UserprofilesController extends Controller
 {
@@ -12,7 +13,8 @@ class UserprofilesController extends Controller
      */
     public function index()
     {
-        dd('userprofiles');
+        $users = Userprofile::GetPaginated(1);
+        return view('userprofiles.index',compact('users'));
     }
 
     /**
@@ -44,7 +46,7 @@ class UserprofilesController extends Controller
      */
     public function show($id)
     {
-        //
+        dd('show');
     }
 
     /**
@@ -56,7 +58,7 @@ class UserprofilesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = Userprofile::getOneById($id);
     }
 
     /**
@@ -68,7 +70,7 @@ class UserprofilesController extends Controller
      */
     public function update($id)
     {
-        //
+        dd('update');
     }
 
     /**
