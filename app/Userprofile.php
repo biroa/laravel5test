@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Userprofile extends Model
 {
+    // Mass-assignable fields
     protected $fillable = [
         'country_id',
         'first_name',
