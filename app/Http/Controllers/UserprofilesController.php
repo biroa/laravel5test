@@ -14,7 +14,8 @@ class UserprofilesController extends Controller
     public function index()
     {
         $users = Userprofile::GetPaginated(1);
-        return view('userprofiles.index',compact('users'));
+
+        return view('userprofiles.index', compact('users'));
     }
 
     /**
@@ -46,7 +47,7 @@ class UserprofilesController extends Controller
      */
     public function show($id)
     {
-        dd('show');
+        //show
     }
 
     /**
@@ -70,7 +71,7 @@ class UserprofilesController extends Controller
      */
     public function update($id)
     {
-        dd('update');
+        //update
     }
 
     /**
