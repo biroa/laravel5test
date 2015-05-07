@@ -6,7 +6,7 @@
     <hr/>
 
     {!! Form::model($userprofile ,['method' => 'PATCH',  'action' => ['UserprofilesController@update' , $userprofile->id ] ]) !!}
-
+    @include('userprofiles.partials._form',['submitButtonText'=> 'Update User profile'])
     {!! Form::close() !!}
 
 
