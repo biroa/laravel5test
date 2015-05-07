@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Userprofile extends Model
 {
+
     // Mass-assignable fields
     protected $fillable = [
         'country_id',
@@ -17,6 +18,11 @@ class Userprofile extends Model
         'county',
         'state',
 
+    ];
+
+    public $genders = [
+        '1'=> 'male',
+        '2'=> 'female'
     ];
 
     /**
