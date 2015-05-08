@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\Userprofile;
 
 class UserprofilesController extends Controller
@@ -33,9 +33,13 @@ class UserprofilesController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request, Userprofile $userprofile)
     {
-        //
+        $userprofile->create($request->except('id'));
+        //We use the laracasts service providers
+        flash()->success('Your article has been created');
+
+        return redirect('userprofiles');
     }
 
     /**
@@ -71,9 +75,12 @@ class UserprofilesController extends Controller
      *
      * @return Response
      */
-    public function update($id)
+    public function update(Request $request,$id)
     {
-        //update
+        $userprofile = Userprofile::getOneById($id);
+        $userprofile->update($request->except('id','created_at'));
+
+        return redirect('userprofiles');
     }
 
     /**
