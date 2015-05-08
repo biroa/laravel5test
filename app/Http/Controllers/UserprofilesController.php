@@ -57,9 +57,8 @@ class UserprofilesController extends Controller
      *
      * @return Response
      */
-    public function edit(Userprofile $usersGender, $id)
+    public function edit($id)
     {
-        $genders = $usersGender->genders;
         $userprofile = Userprofile::getOneById($id);
         return view('userprofiles.edit', compact('userprofile'));
     }

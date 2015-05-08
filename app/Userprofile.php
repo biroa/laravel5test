@@ -20,10 +20,6 @@ class Userprofile extends Model
 
     ];
 
-    public $genders = [
-        '1'=> 'male',
-        '2'=> 'female'
-    ];
 
     /**
      * Get all users' profiles
