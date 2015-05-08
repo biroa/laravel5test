@@ -22,7 +22,7 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('address','Mobile') !!}
+    {!! Form::label('address','Address') !!}
     {!! Form::text('address',$userprofile->address,['class'=>'form-control']) !!}
 </div>
 
