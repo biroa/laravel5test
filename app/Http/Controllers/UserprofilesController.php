@@ -13,7 +13,7 @@ class UserprofilesController extends Controller
      */
     public function index()
     {
-        $users = Userprofile::GetPaginated(1);
+        $users = Userprofile::GetPaginated(5);
 
         return view('userprofiles.index', compact('users'));
     }
