@@ -8,12 +8,13 @@
     {!! Form::text('last_name',$userprofile->last_name,['class'=>'form-control']) !!}
 </div>
 
-{{--<div class="form-group">--}}
-    {{--{!! Form::label('gender','Gender') !!}--}}
-    {{--{!!--}}
-    {{--Form::select('genders',$userprofile->gender,null,['id'=>'$userprofile->gender','class'=>'form-control'])--}}
-    {{--!!}--}}
-{{--</div>--}}
+<div class="form-group">
+    {!! Form::label('gender','Gender') !!}
+    {!!
+    Form::select('gender',['0' => 'Female','1' => 'Male'],null,['id'=>'$userprofile->gender','class'=>'form-control'])
+    !!}
+
+</div>
 
 <div class="form-group">
     {!! Form::label('contact_email','Contact Email') !!}
