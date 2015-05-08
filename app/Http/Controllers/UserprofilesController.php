@@ -25,7 +25,7 @@ class UserprofilesController extends Controller
      */
     public function create()
     {
-        //
+        return view('userprofiles.edit', compact('userprofile'));
     }
 
     /**
