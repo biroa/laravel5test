@@ -6,7 +6,7 @@
             <h1>Users' Profiles</h1>
         </div>
         <div class="col-lg-6 text-right">
-            <a href="/usersprofile/create" class="btn btn-primary" role="button">Create New User</a>
+            <a href="/userprofiles/create" class="btn btn-primary" role="button">Create New User</a>
         </div>
     </div>
 
