@@ -60,6 +60,7 @@ class UserprofilesController extends Controller
     public function edit($id)
     {
         $userprofile = Userprofile::getOneById($id);
+
         return view('userprofiles.edit', compact('userprofile'));
     }
 
