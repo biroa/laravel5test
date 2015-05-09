@@ -44,7 +44,11 @@
                                     <td>{{$user->id}}</td>
                                     <td>{{$user->first_name}}</td>
                                     <td>{{$user->last_name}}</td>
-                                    <td>{{$user->gender}}</td>
+                                    @if ($user->gender == 0)
+                                        <td>Female</td>
+                                    @else
+                                        <td>Male</td>
+                                    @endif
                                     <td>{{$user->contact_email}}</td>
                                     <td>{{$user->mobile_phone}}</td>
                                     <td>{{$user->address}}</td>
