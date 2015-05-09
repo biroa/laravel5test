@@ -22,11 +22,11 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                             <tr>
-                                <th>id</th>
+                                {{--<th>id</th>--}}
                                 <th>first name</th>
                                 <th>last name</th>
                                 <th>gender</th>
-                                <th>contect nmail</th>
+                                <th>contact nmail</th>
                                 <th>mobile</th>
                                 <th>address</th>
                                 <th>city</th>
@@ -41,7 +41,7 @@
                             @foreach($users as $user)
 
                                 <tr>
-                                    <td>{{$user->id}}</td>
+                                    {{--<td>{{$user->id}}</td>--}}
                                     <td>{{$user->first_name}}</td>
                                     <td>{{$user->last_name}}</td>
                                     @if ($user->gender == 0)
