@@ -4,6 +4,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Userprofile extends Model
 {
+
+    // Mass-assignable fields
     protected $fillable = [
         'country_id',
         'first_name',
@@ -17,6 +19,7 @@ class Userprofile extends Model
         'state',
 
     ];
+
 
     /**
      * Get all users' profiles
@@ -53,7 +56,7 @@ class Userprofile extends Model
      */
     public function scopeGetOneById($query, $id)
     {
-        return $this->find($id);
+        return $this->findOrFail($id);
     }
 
 }

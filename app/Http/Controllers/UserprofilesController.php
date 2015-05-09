@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\Userprofile;
 
 class UserprofilesController extends Controller
@@ -13,8 +13,9 @@ class UserprofilesController extends Controller
      */
     public function index()
     {
-        $users = Userprofile::GetPaginated(1);
-        return view('userprofiles.index',compact('users'));
+        $users = Userprofile::GetPaginated(5);
+
+        return view('userprofiles.index', compact('users'));
     }
 
     /**
@@ -24,7 +25,7 @@ class UserprofilesController extends Controller
      */
     public function create()
     {
-        //
+        return view('userprofiles.create');
     }
 
     /**
@@ -32,9 +33,13 @@ class UserprofilesController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request, Userprofile $userprofile)
     {
-        //
+        $userprofile->create($request->except('id'));
+        //We use the laracasts service providers
+        flash()->success('Your article has been created');
+
+        return redirect('userprofiles');
     }
 
     /**
@@ -46,7 +51,7 @@ class UserprofilesController extends Controller
      */
     public function show($id)
     {
-        dd('show');
+        //show
     }
 
     /**
@@ -58,7 +63,9 @@ class UserprofilesController extends Controller
      */
     public function edit($id)
     {
-        $users = Userprofile::getOneById($id);
+        $userprofile = Userprofile::getOneById($id);
+
+        return view('userprofiles.edit', compact('userprofile'));
     }
 
     /**
@@ -68,9 +75,12 @@ class UserprofilesController extends Controller
      *
      * @return Response
      */
-    public function update($id)
+    public function update(Request $request,$id)
     {
-        dd('update');
+        $userprofile = Userprofile::getOneById($id);
+        $userprofile->update($request->except('id','created_at'));
+
+        return redirect('userprofiles');
     }
 
     /**

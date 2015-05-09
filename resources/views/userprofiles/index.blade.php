@@ -6,7 +6,7 @@
             <h1>Users' Profiles</h1>
         </div>
         <div class="col-lg-6 text-right">
-            <a href="/usersprofile/create" class="btn btn-primary" role="button">Create New User</a>
+            <a href="/userprofiles/create" class="btn btn-primary" role="button">Create New User</a>
         </div>
     </div>
 
@@ -44,7 +44,11 @@
                                     <td>{{$user->id}}</td>
                                     <td>{{$user->first_name}}</td>
                                     <td>{{$user->last_name}}</td>
-                                    <td>{{$user->gender}}</td>
+                                    @if ($user->gender == 0)
+                                        <td>Female</td>
+                                    @else
+                                        <td>Male</td>
+                                    @endif
                                     <td>{{$user->contact_email}}</td>
                                     <td>{{$user->mobile_phone}}</td>
                                     <td>{{$user->address}}</td>
