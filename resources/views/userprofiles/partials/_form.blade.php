@@ -24,7 +24,7 @@
 <div class="form-group">
     {!! Form::label('countries','Country') !!}
     {!!
-    Form::select('countries[]',$countries,null,['id'=>'countries','class'=>'form-control'])
+    Form::select('countries[]',$countries,null,['id'=>'$countries->id','class'=>'form-control'])
     !!}
 
 </div>
