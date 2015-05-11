@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Userprofile;
+use App\Country as Country;
 
 class UserprofilesController extends Controller
 {
@@ -25,7 +26,8 @@ class UserprofilesController extends Controller
      */
     public function create()
     {
-        return view('userprofiles.create');
+        $countries = Country::lists('nicename','id');
+        return view('userprofiles.create',compact('countries'));
     }
 
     /**
