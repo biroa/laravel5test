@@ -22,12 +22,22 @@
 </div>
 
 <div class="form-group">
+    {!! Form::label('countries','Country') !!}
+    {!!
+    Form::select('countries[]',$countries,null,['id'=>'countries','class'=>'form-control'])
+    !!}
+
+</div>
+
+<div class="form-group">
     {!! Form::label('address','Address') !!}
     {!! Form::text('address',$userprofile->address,['class'=>'form-control']) !!}
 </div>
 
+
+
 <div class="form-group">
-    {!! Form::label('city','Mobile') !!}
+    {!! Form::label('city','City') !!}
     {!! Form::text('city',$userprofile->city,['class'=>'form-control']) !!}
 </div>
 
