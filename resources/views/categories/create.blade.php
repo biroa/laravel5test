@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    <h1>New Category</h1>
+    <h1>New Profile</h1>
 
     <hr/>
     {!! Form::model($category = new \App\Category,['url'=> 'categories' ]) !!}
