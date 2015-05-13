@@ -18,7 +18,7 @@ class Country extends Model
 
     /**
      * Get one country by id
-     * 
+     *
      * @param $query
      * @param $id
      *
@@ -27,6 +27,16 @@ class Country extends Model
     public function scopeGetOneById($query, $id)
     {
         return $query->findOrFail($id);
+    }
+
+    /**
+     * Get user profile based country
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function profiles()
+    {
+        return $this->belongsTo('App\Userprofile', 'id', 'country_id');
     }
 
 }

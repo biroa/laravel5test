@@ -59,4 +59,8 @@ class Userprofile extends Model
         return $this->findOrFail($id);
     }
 
+    public function country()
+    {
+        return $this->hasOne('App\Country','id','country_id');
+    }
 }
