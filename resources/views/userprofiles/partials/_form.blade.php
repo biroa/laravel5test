@@ -22,9 +22,14 @@
 </div>
 
 <div class="form-group">
+    {!! Form::label('mobile_phone','Mobile') !!}
+    {!! Form::text('mobile_phone',$userprofile->mobile_phone,['class'=>'form-control']) !!}
+</div>
+
+<div class="form-group">
     {!! Form::label('countries','Country') !!}
     {!!
-    Form::select('countries[]',$countries,null,['id'=>'$countries->id','class'=>'form-control'])
+    Form::select('country_id',$countries,null,['id'=>'$countries->id','class'=>'form-control'])
     !!}
 
 </div>
