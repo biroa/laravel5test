@@ -1,8 +1,8 @@
 <?php namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Userprofile;
 use App\Country as Country;
+use App\Userprofile;
+use Illuminate\Http\Request;
 
 class UserprofilesController extends Controller
 {
@@ -26,8 +26,9 @@ class UserprofilesController extends Controller
      */
     public function create()
     {
-        $countries = Country::lists('nicename','id');
-        return view('userprofiles.create',compact('countries'));
+        $countries = Country::lists('nicename', 'id');
+
+        return view('userprofiles.create', compact('countries'));
     }
 
     /**
@@ -66,8 +67,9 @@ class UserprofilesController extends Controller
     public function edit($id)
     {
         $userprofile = Userprofile::getOneById($id);
-        $countries = Country::lists('nicename','id');
-        return view('userprofiles.edit', compact('userprofile','countries'));
+        $countries = Country::lists('nicename', 'id');
+
+        return view('userprofiles.edit', compact('userprofile', 'countries'));
     }
 
     /**
@@ -77,10 +79,10 @@ class UserprofilesController extends Controller
      *
      * @return Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $userprofile = Userprofile::getOneById($id);
-        $userprofile->update($request->except('id','created_at'));
+        $userprofile->update($request->except('id', 'created_at'));
 
         return redirect('userprofiles');
     }
