@@ -18,12 +18,12 @@ class CreateGalleriesTable extends Migration
             $table->integer('category_id');
             $table->string('name', 150);
             $table->string('thumbnail', 255);
-            $table->integer('lg_width', 150);
-            $table->integer('lg_height', 150);
-            $table->integer('m_width', 150);
-            $table->integer('m_height', 150);
-            $table->integer('sm_width', 150);
-            $table->integer('sm_height', 150);
+            $table->integer('lg_width');
+            $table->integer('lg_height');
+            $table->integer('m_width');
+            $table->integer('m_height');
+            $table->integer('sm_width');
+            $table->integer('sm_height');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
