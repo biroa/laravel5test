@@ -17,11 +17,11 @@ class CreateImagesTable extends Migration
             $table->increments('id');
             $table->integer('gallery_id');
             $table->string('name', 150);
-            $table->text('description', 150);
-            $table->text('original_img_path', 255);
-            $table->text('large_img_path', 255);
-            $table->text('medium_img_path', 255);
-            $table->text('small_img_path', 255);
+            $table->text('description');
+            $table->text('original_img_path');
+            $table->text('large_img_path');
+            $table->text('medium_img_path');
+            $table->text('small_img_path');
             $table->string('camera', 50);
             $table->string('lens', 50);
             $table->string('focal_length', 50);
