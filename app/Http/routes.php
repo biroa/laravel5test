@@ -18,6 +18,8 @@ Route::resource('userprofiles', 'UserprofilesController');
 Route::resource('articles', 'ArticlesController');
 Route::resource('tags', 'TagsController');
 Route::resource('categories', 'CategoriesController');
+Route::resource('galleries', 'GalleriesController');
+Route::resource('images', 'ImagesController');
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
