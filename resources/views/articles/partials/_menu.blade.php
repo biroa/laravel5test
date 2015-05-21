@@ -24,6 +24,12 @@
             <ul class="nav navbar-nav">
                 <li><a href="/tags">Tags</a></li>
             </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="/galleries">Galleries</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="/images">Images</a></li>
+            </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 @if($latest != null)
