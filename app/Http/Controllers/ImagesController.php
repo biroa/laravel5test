@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Image;
+
 
 class ImagesController extends Controller
 {
@@ -18,7 +20,7 @@ class ImagesController extends Controller
      */
     public function index()
     {
-        //
+        return Image::getAll();
     }
 
     /**
