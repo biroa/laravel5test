@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class Gallery extends Model
 {
 
+
     /**
      * relation
      *
@@ -13,8 +14,9 @@ class Gallery extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function images(){
-       return  $this->hasMany('App\Image');
+    public function images()
+    {
+        return $this->hasMany('App\Image');
     }
 
 }
