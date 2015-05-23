@@ -5,14 +5,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
+
     /**
      * get All images with the correspondent gallery
      *
-     * @return mixed
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     *
      */
-    public function scopeGetAll(){
+    public function scopeGetAllWith()
+    {
         return $this->with('gallery')->get();
 
+    }
+
+    /**
+     * get All images without relation
+     *
+     * @return mixed
+     */
+    public function scopeGetAllWithout()
+    {
+        return $this->get();
     }
 
     /**
@@ -22,8 +35,9 @@ class Image extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function  gallery(){
-       return $this->belongsTo('App\Gallery');
+    public function  gallery()
+    {
+        return $this->belongsTo('App\Gallery');
     }
 
 }
