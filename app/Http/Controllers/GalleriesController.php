@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Gallery;
 use App\Http\Requests;
 
 class GalleriesController extends Controller
@@ -18,7 +19,7 @@ class GalleriesController extends Controller
      */
     public function index()
     {
-        //
+        return Gallery::getAllWithout();
     }
 
     /**
