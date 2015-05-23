@@ -20,7 +20,7 @@ class ImagesController extends Controller
      */
     public function index()
     {
-        return Image::getAll();
+        return Image::getAllWith();
     }
 
     /**
