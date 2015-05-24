@@ -19,7 +19,8 @@ class GalleriesController extends Controller
      */
     public function index()
     {
-        return Gallery::getAllWithout();
+        $galleries = Gallery::getAllWithout();
+        return view('galleries.index', compact('galleries'));
     }
 
     /**
