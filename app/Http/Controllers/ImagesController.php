@@ -20,7 +20,8 @@ class ImagesController extends Controller
      */
     public function index()
     {
-        return Image::getAllWith();
+        $images = Image::getAllWith();
+        return view('images.index', compact('images'));
     }
 
     /**
