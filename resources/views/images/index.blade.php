@@ -23,7 +23,7 @@
                             <thead>
                             <tr>
                                 <th>id</th>
-                                <th>category</th>
+                                <th>gallery</th>
                                 <th>name</th>
                                 <th>description</th>
                                 <th>camera</th>
