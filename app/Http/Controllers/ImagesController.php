@@ -20,7 +20,7 @@ class ImagesController extends Controller
      */
     public function index()
     {
-        $images = Image::getAllWith();
+        $images = Image::getPaginated(1);
         return view('images.index', compact('images'));
     }
 
