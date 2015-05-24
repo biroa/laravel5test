@@ -56,7 +56,7 @@
                         </table>
                     </div>
                     <!-- /.table-responsive -->
-
+                    <?php echo $images->render(); ?>
                 </div>
                 <!-- /.panel-body -->
             </div>
