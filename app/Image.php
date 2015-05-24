@@ -29,6 +29,18 @@ class Image extends Model
     }
 
     /**
+     * Get all images and gallery data with pagination
+     *
+     * @param     $query
+     * @param int $howMany
+     *
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function scopeGetPaginated($query, $howMany = 25){
+        return  $this->with('gallery')->paginate($howMany);
+    }
+
+    /**
      * relation
      *
      * Image belongs to one Gallery
