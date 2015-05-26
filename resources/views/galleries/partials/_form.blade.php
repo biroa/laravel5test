@@ -1,9 +1,20 @@
 <!-- form comes here -->
 <div class="form-group">
-    {!! Form::label('name','Category name') !!}
+    {!! Form::label('name','Gallery name') !!}
     {!! Form::text('name',$gallery->name,['class'=>'form-control']) !!}
 </div>
 
+<div class="form-group">
+    {!! Form::label('category_id','Categories') !!}
+    {!!
+    Form::select('category_id',$gallery,null,['id'=>'$gallery','class'=>'form-control'])
+    !!}
+</div>
+
+<div class="form-group">
+    {!! Form::label('Gallery thumbnail') !!}
+    {!! Form::file('image', null) !!}
+</div>
 
 <div class="form-group">
     {!! Form::label('lg_width','Medium Image Width') !!}
