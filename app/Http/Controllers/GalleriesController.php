@@ -30,7 +30,7 @@ class GalleriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('galleries.create');
     }
 
     /**

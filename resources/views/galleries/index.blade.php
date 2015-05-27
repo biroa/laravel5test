@@ -6,7 +6,7 @@
             <h1>Images</h1>
         </div>
         <div class="col-lg-6 text-right">
-            <a href="/images/create" class="btn btn-primary" role="button">Create New Gallery </a>
+            <a href="/galleries/create" class="btn btn-primary" role="button">Create New Gallery </a>
         </div>
     </div>
 
