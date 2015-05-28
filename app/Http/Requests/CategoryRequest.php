@@ -21,10 +21,10 @@ class CategoryRequest extends Request
     public function rules()
     {
         return [
-            'name' =>'required|min:3',
-            'short_lead' =>'required|min:3',
-            'lead' =>'required|min:3',
-            'description' =>'required|min:3',
+            'name' => 'required|min:3',
+            'short_lead' => 'required|min:3',
+            'lead' => 'required|min:3',
+            'description' => 'required|min:3',
 
         ];
     }
