@@ -22,6 +22,14 @@ class GalleryRequest extends Request
     {
         return [
             //
+            'name' => 'required|min:3',
+            'thumbnail'=>'required|min:3',
+            'lg_width' => 'integer|required|min:3',
+            'lg_height' => 'integer|required|min:3',
+            'm_width' => 'integer|required|min:3',
+            'm_height' => 'integer|required|min:3',
+            'sm_width' => 'integer|required|min:3',
+            'sm_height' => 'integer|required|min:3',
         ];
     }
 
