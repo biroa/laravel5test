@@ -4,6 +4,7 @@ use App\Article;
 use App\Category;
 use App\Http\Requests\ArticleRequest;
 
+
 class ArticlesController extends Controller
 {
 
@@ -14,9 +15,11 @@ class ArticlesController extends Controller
      * ['index'=>'index']
      *
      */
+    protected $articleRepository;
 
-    public function  __construct()
+    public function  __construct(ArticleRepositoryInterface $articleRepository)
     {
+        $this->articleRepository = $articleRepository;
         $this->middleware('auth', [ 'index' => 'index' ]);
     }
 
