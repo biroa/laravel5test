@@ -3,7 +3,7 @@
 use App\Article;
 use App\Category;
 use App\Http\Requests\ArticleRequest;
-use App\Repositories\Article\DbArticleRepositoryInterface;
+use App\Repositories\Article\ArticleRepositoryInterface;
 
 class ArticlesController extends Controller
 {
@@ -17,7 +17,7 @@ class ArticlesController extends Controller
      */
     protected $articleRepository;
 
-    public function  __construct(DbArticleRepositoryInterface $articleRepository)
+    public function  __construct(ArticleRepositoryInterface $articleRepository)
     {
         $this->articleRepository = $articleRepository;
         $this->middleware('auth', [ 'index' => 'index' ]);
