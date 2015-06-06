@@ -20,16 +20,6 @@ class Article extends Model
     //Rules for trim
     protected $charsForTrim = ' \t\n\r\0\x0B';
 
-    private $articleRepository;
-
-    /**
-     * @param \App\ArticleRepositoryInterface $articleRepository
-     */
-    public function __construct(ArticleRepositoryInterface $articleRepository){
-
-        $this->articleRepository = $articleRepository;
-    }
-
     /**
      * We modify published_at with carbon parse
      *
