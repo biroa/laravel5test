@@ -1,8 +1,7 @@
-<?php
-namespace app\Repositories\Article;
+<?php namespace app\Repositories;
 
 interface ArticleRepositoryInterface {
 
-    public function getAll();
+    public function getById();
 
 }
