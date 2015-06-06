@@ -1,6 +1,7 @@
-<?php namespace app\Repositories;
+<?php namespace App\Repositories\Article;
 
-interface ArticleRepositoryInterface {
+interface ArticleRepositoryInterface
+{
 
     public function getById();
 

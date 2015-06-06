@@ -148,7 +148,8 @@ return [
         'App\Providers\EventServiceProvider',
         'App\Providers\RouteServiceProvider',
         'App\Providers\ViewComposerServiceProvider',
-        'Laracasts\Flash\FlashServiceProvider'
+        'App\Providers\BackendServiceProvider',
+        'Laracasts\Flash\FlashServiceProvider',
 
     ],
 

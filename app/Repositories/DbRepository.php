@@ -1,11 +1,13 @@
 <?php
 
-namespace app\Repositories;
+namespace App\Repositories;
 
 
-abstract class DbRepository {
+abstract class DbRepository
+{
 
-    public function getById($id){
+    public function getById($id)
+    {
         return $this->model->find($id);
     }
 }

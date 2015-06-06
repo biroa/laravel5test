@@ -1,12 +1,12 @@
-<?php namespace app\Repositories\Article;
+<?php namespace App\Repositories\Articles;
 
-use app\Repositories;
+use App\Repositories;
 
+class DbArticleRepository extends DbRepository implements ArticleRepositoryInterface
+{
 
-class DbArticleRepository extends DbRepository implements ArticleRepositoryInterface {
-
-
-    public function __construct(Article $model){
+    public function __construct(Article $model)
+    {
 
     }
 
