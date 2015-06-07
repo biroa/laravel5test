@@ -22,7 +22,7 @@ class BackendServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Repositories\Article\ArticleRepositoryInterface', 'App\Repositories\Article\DbArticleRepository');
+        $this->app->bind('App\Repositories\ArticleRepo\ArticleRepositoryInterface', 'App\Repositories\ArticleRepo\DbArticleRepository');
     }
 
 }

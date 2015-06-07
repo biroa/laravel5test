@@ -1,4 +1,4 @@
-<?php namespace App\Repositories\Article {
+<?php namespace App\Repositories\ArticleRepo;
 
     use App\Repositories as Repo;
 
@@ -11,4 +11,3 @@
         }
 
     }
-}
