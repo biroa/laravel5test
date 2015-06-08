@@ -15,7 +15,7 @@ class AddPolymorphicFieldsToTheCategoriesTable extends Migration
     {
         Schema::table('categories', function (Blueprint $table) {
             $table->integer('categorizable_id')->after('id');
-            $table->string('categorizable_type')->after('id');
+            $table->string('categorizable_type')->after('categorizable_id');
         });
     }
 
