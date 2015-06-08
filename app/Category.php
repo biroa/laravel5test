@@ -16,8 +16,7 @@ class Category extends Model
         'description',
         'body',
         'lead_img_src',
-        'categorizable_id',
-        'categorizable_type'
+        'category_id'
     ];
 
     /**
@@ -29,11 +28,6 @@ class Category extends Model
     public function articles()
     {
         return $this->hasMany('App\Article');
-    }
-
-    public function categorizable()
-    {
-        return $this->morphTo();
     }
 
     /**
