@@ -125,7 +125,7 @@ class Article extends Model
     public function category()
     {
 //        return $this->belongsTo('App\Category');
-        return $this->morphMany('Category', 'categorizable');
+        return $this->morphMany('App\Category', 'categorizable');
     }
 
 
