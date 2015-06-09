@@ -29,7 +29,12 @@ class Category extends Model
     {
         return $this->hasMany('App\Article');
     }
-    
+
+    public function galleries()
+    {
+        return $this->belongsTo('App\Gallery');
+    }
+
     /**
      * Get all categories
      *
