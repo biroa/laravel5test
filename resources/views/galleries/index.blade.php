@@ -40,7 +40,10 @@
 
                                 <tr>
                                     <td>{{$gallery->id}}</td>
-                                    <td>{{$gallery->category_id}}</td>
+
+                                    @foreach($gallery->categories as $category)
+                                        <td>{{$category->name}}</td>
+                                    @endforeach
                                     <td>{{$gallery->name}}</td>
                                     <td>{{$gallery->thumbnail}}</td>
                                     <td>{{$gallery->lg_width}}</td>
