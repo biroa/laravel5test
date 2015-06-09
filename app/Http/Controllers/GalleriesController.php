@@ -20,7 +20,6 @@ class GalleriesController extends Controller
     public function index()
     {
         $galleries = Gallery::getPaginated(1);
-
         return view('galleries.index', compact('galleries'));
     }
 
