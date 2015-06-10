@@ -7,7 +7,7 @@
 <div class="form-group">
     {!! Form::label('category_id','Categories') !!}
     {!!
-    Form::select('category_id',$gallery,null,['id'=>'$gallery','class'=>'form-control'])
+    Form::select('category_id',$category,null,['id'=>'$category','class'=>'form-control'])
     !!}
 </div>
 
@@ -23,7 +23,8 @@
 
 <div class="form-group">
     {!! Form::label('lg_height','Large Image Height') !!}
-    {!! Form::text('lg_height',$gallery->lg_height,['class'=>'form-control']) !!}
+    {!! Form::text('lg_height',$gallery->lg_height,['class'=>'form-control'])
+    !!}
 </div>
 
 <div class="form-group">
@@ -43,12 +44,9 @@
 
 <div class="form-group">
     {!! Form::label('sm_height','Small Image Height') !!}
-    {!! Form::text('sm_height',$gallery->sm_height,['class'=>'form-control']) !!}
+    {!! Form::text('sm_height',$gallery->sm_height,['class'=>'form-control'])
+    !!}
 </div>
-
-
-
-
 
 
 <div class="form-group">
