@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-6 text-left">
-            <h1>Images</h1>
+            <h1>Galleries</h1>
         </div>
         <div class="col-lg-6 text-right">
             <a href="/galleries/create" class="btn btn-primary" role="button">Create New Gallery </a>
