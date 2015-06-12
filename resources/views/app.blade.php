@@ -7,6 +7,7 @@
     <title>Laravel</title>
 
     <link href="/css/all.css" rel="stylesheet">
+    <link href="/css/overwrite.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300'
