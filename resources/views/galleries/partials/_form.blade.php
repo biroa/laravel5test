@@ -17,7 +17,7 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('lg_width','Medium Image Width') !!}
+    {!! Form::label('lg_width','Large Image Width') !!}
     {!! Form::text('lg_width',$gallery->lg_width,['class'=>'form-control']) !!}
 </div>
 
