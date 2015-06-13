@@ -22,6 +22,10 @@ class Tag extends Model
         return $this->belongsToMany('App\Article');
     }
 
+    public function images(){
+        return $this->belongsToMany('App\Image');
+    }
+
     /**
      * Get all tags
      *

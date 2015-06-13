@@ -52,4 +52,13 @@ class Image extends Model
         return $this->belongsTo('App\Gallery');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tag()
+    {
+        //In many-to-many relationship we have to add the 'withTimestamps'
+        //to insert the created and updated flags by default...
+        return $this->belongsToMany('App\Tag')->withTimestamps();
+    }
 }
