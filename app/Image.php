@@ -36,8 +36,9 @@ class Image extends Model
      *
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function scopeGetPaginated($query, $howMany = 25){
-        return  $this->with('gallery')->paginate($howMany);
+    public function scopeGetPaginated($query, $howMany = 25)
+    {
+        return $this->with('gallery')->paginate($howMany);
     }
 
     /**
