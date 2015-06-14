@@ -53,6 +53,8 @@ class Image extends Model
     }
 
     /**
+     * Image can have more tags
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function tag()
