@@ -11,6 +11,12 @@
     {!! Form::file('image', null) !!}
 </div>
 <div class="form-group">
+    {!! Form::label('tag_list','Tags') !!}
+    {!!
+    Form::select('tag_list[]',$tags,null,['id'=>'tag_list','class'=>'form-control','multiple'=>'multiple'])
+    !!}
+</div>
+<div class="form-group">
     {!! Form::label('Camera','camera') !!}
     {!! Form::text('camera',$images->camera,['class'=>'form-control']) !!}
 </div>
@@ -39,3 +45,10 @@
     {!! Form::submit($submitButtonText, ['class' => 'btn btn-primary
     form-control']) !!}
 </div>
+@section('footer')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tag_list').select2();
+        });
+    </script>
+@endsection
