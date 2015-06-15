@@ -31,7 +31,8 @@ class ImagesController extends Controller
      */
     public function create()
     {
-        //
+        $tags = \App\Tag::lists('name', 'id');
+        return view('images.create',compact('tags'));
     }
 
     /**
