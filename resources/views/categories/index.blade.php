@@ -30,17 +30,25 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($categories as $category)
-
+                            @if($categories->count() > 0)
+                                @foreach($categories as $category)
+                                    <tr>
+                                        <td>{{$category->id}}</td>
+                                        <td>{{$category->name}}</td>
+                                        <td>{{$category->short_lead}}</td>
+                                        <td>{{$category->updated_at}}</td>
+                                        <td>{{$category->created_at}}</td>
+                                        <td><a href=<?='/categories/' . $category->id . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
+                                    </tr>
+                                @endforeach
+                            @else
                                 <tr>
-                                    <td>{{$category->id}}</td>
-                                    <td>{{$category->name}}</td>
-                                    <td>{{$category->short_lead}}</td>
-                                    <td>{{$category->updated_at}}</td>
-                                    <td>{{$category->created_at}}</td>
-                                    <td><a href=<?='/categories/' . $category->id . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
+                                    <td colspan="6">
+                                        There is no category yet.
+                                    </td>
                                 </tr>
-                            @endforeach
+
+                            @endif
                             </tbody>
                         </table>
                     </div>
