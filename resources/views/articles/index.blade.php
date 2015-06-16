@@ -31,17 +31,24 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($articles as $article)
-
+                            @if($articles->count() > 0)
+                                @foreach($articles as $article)
+                                    <tr>
+                                        <td>{{$article->id}}</td>
+                                        <td>{{$article->title}}</td>
+                                        <td>{{$article->excerpt}}</td>
+                                        <td>{{$article->url}}</td>
+                                        <td>{{$article->category->name}}</td>
+                                        <td><a href=<?='/articles/' . $article->id . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
+                                    </tr>
+                                @endforeach
+                            @else
                                 <tr>
-                                    <td>{{$article->id}}</td>
-                                    <td>{{$article->title}}</td>
-                                    <td>{{$article->excerpt}}</td>
-                                    <td>{{$article->url}}</td>
-                                    <td>{{$article->category->name}}</td>
-                                    <td><a href=<?='/articles/' . $article->id . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
+                                    <td colspan="6">
+                                        There is no articles.
+                                    </td>
                                 </tr>
-                            @endforeach
+                            @endif
                             </tbody>
                         </table>
                     </div>
