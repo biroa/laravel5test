@@ -38,28 +38,36 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @if($users->count() > 0)
                             @foreach($users as $user)
 
+                                    <tr>
+                                        {{--<td>{{$user->id}}</td>--}}
+                                        <td>{{$user->first_name}}</td>
+                                        <td>{{$user->last_name}}</td>
+                                        @if ($user->gender == 0)
+                                            <td>Female</td>
+                                        @else
+                                            <td>Male</td>
+                                        @endif
+                                        <td>{{$user->contact_email}}</td>
+                                        <td>{{$user->mobile_phone}}</td>
+                                        <td>{{$user->address}}</td>
+                                        <td>{{$user->city}}</td>
+                                        <td>{{$user->county}}</td>
+                                        {{--<td>{{$user->state}}</td>--}}
+                                        {{--<td>{{$user->updated_at}}</td>--}}
+                                        {{--<td>{{$user->created_at}}</td>--}}
+                                        <td><a href=<?='/userprofiles/' . $user->id . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
+                                    </tr>
+                                @endforeach
+                            @else
                                 <tr>
-                                    {{--<td>{{$user->id}}</td>--}}
-                                    <td>{{$user->first_name}}</td>
-                                    <td>{{$user->last_name}}</td>
-                                    @if ($user->gender == 0)
-                                        <td>Female</td>
-                                    @else
-                                        <td>Male</td>
-                                    @endif
-                                    <td>{{$user->contact_email}}</td>
-                                    <td>{{$user->mobile_phone}}</td>
-                                    <td>{{$user->address}}</td>
-                                    <td>{{$user->city}}</td>
-                                    <td>{{$user->county}}</td>
-                                    {{--<td>{{$user->state}}</td>--}}
-                                    {{--<td>{{$user->updated_at}}</td>--}}
-                                    {{--<td>{{$user->created_at}}</td>--}}
-                                    <td><a href=<?='/userprofiles/' . $user->id . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
+                                    <td colspan="9">
+                                        There is no user.
+                                    </td>
                                 </tr>
-                            @endforeach
+                            @endif
                             </tbody>
                         </table>
                     </div>
