@@ -36,22 +36,29 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($images as $image)
-
+                            @if($images->count() > 0)
+                                @foreach($images as $image)
+                                    <tr>
+                                        <td>{{$image->id}}</td>
+                                        <td>{{$image->gallery->name}}</td>
+                                        <td>{{$image->name}}</td>
+                                        <td>{{$image->description}}</td>
+                                        <td>{{$image->camera}}</td>
+                                        <td>{{$image->lens}}</td>
+                                        <td>{{$image->focal_length}}</td>
+                                        <td>{{$image->shutter_speed}}</td>
+                                        <td>{{$image->aperture}}</td>
+                                        <td>{{$image->iso}}</td>
+                                        <td><a href=<?='/images/' . $image->id . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
+                                    </tr>
+                                @endforeach
+                            @else
                                 <tr>
-                                    <td>{{$image->id}}</td>
-                                    <td>{{$image->gallery->name}}</td>
-                                    <td>{{$image->name}}</td>
-                                    <td>{{$image->description}}</td>
-                                    <td>{{$image->camera}}</td>
-                                    <td>{{$image->lens}}</td>
-                                    <td>{{$image->focal_length}}</td>
-                                    <td>{{$image->shutter_speed}}</td>
-                                    <td>{{$image->aperture}}</td>
-                                    <td>{{$image->iso}}</td>
-                                    <td><a href=<?='/images/' . $image->id . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
+                                    <td colspan="11">
+                                        There is no images yet.
+                                    </td>
                                 </tr>
-                            @endforeach
+                            @endif
                             </tbody>
                         </table>
                     </div>
