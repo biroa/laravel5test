@@ -36,25 +36,33 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($galleries as $gallery)
+                            @if($galleries->count > 0)
+                                @foreach($galleries as $gallery)
 
-                                <tr>
-                                    <td>{{$gallery->id}}</td>
+                                    <tr>
+                                        <td>{{$gallery->id}}</td>
 
-                                    @foreach($gallery->categories as $category)
-                                        <td>{{$category->name}}</td>
-                                    @endforeach
-                                    <td>{{$gallery->name}}</td>
-                                    <td>{{$gallery->thumbnail}}</td>
-                                    <td>{{$gallery->lg_width}}</td>
-                                    <td>{{$gallery->lg_height}}</td>
-                                    <td>{{$gallery->m_width}}</td>
-                                    <td>{{$gallery->m_height}}</td>
-                                    <td>{{$gallery->sm_width}}</td>
-                                    <td>{{$gallery->sm_height}}</td>
-                                    <td><a href=<?='/galleries/' . $gallery->id . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
-                                </tr>
-                            @endforeach
+                                        @foreach($gallery->categories as $category)
+                                            <td>{{$category->name}}</td>
+                                        @endforeach
+                                        <td>{{$gallery->name}}</td>
+                                        <td>{{$gallery->thumbnail}}</td>
+                                        <td>{{$gallery->lg_width}}</td>
+                                        <td>{{$gallery->lg_height}}</td>
+                                        <td>{{$gallery->m_width}}</td>
+                                        <td>{{$gallery->m_height}}</td>
+                                        <td>{{$gallery->sm_width}}</td>
+                                        <td>{{$gallery->sm_height}}</td>
+                                        <td><a href=<?='/galleries/' . $gallery->id . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
+                                    </tr>
+                                @endforeach
+                            @else
+                            <tr>
+                                <td colspan="11">
+                                    There is no gallery yet.
+                                </td>
+                            </tr>
+                            @endif
                             </tbody>
                         </table>
                     </div>
