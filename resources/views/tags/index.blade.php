@@ -30,16 +30,23 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($tags as $tag)
-
+                            @if($tags->count() > 0)
+                                @foreach($tags as $tag)
+                                    <tr>
+                                        <td>{{$tag->id}}</td>
+                                        <td>{{$tag->name}}</td>
+                                        <td>{{$tag->updated_at}}</td>
+                                        <td>{{$tag->created_at}}</td>
+                                        <td><a href=<?='/tags/' . $tag->name . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
+                                    </tr>
+                                @endforeach
+                            @else
                                 <tr>
-                                    <td>{{$tag->id}}</td>
-                                    <td>{{$tag->name}}</td>
-                                    <td>{{$tag->updated_at}}</td>
-                                    <td>{{$tag->created_at}}</td>
-                                    <td><a href=<?='/tags/' . $tag->name . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
+                                    <td colspan="5">
+                                        There is no tags yet.
+                                    </td>
                                 </tr>
-                            @endforeach
+                            @endif
                             </tbody>
                         </table>
                     </div>

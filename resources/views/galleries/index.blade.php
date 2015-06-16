@@ -36,7 +36,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @if($galleries->count > 0)
+                            @if($galleries->count() > 0)
                                 @foreach($galleries as $gallery)
 
                                     <tr>
