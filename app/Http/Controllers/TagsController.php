@@ -61,20 +61,25 @@ class TagsController extends Controller
      */
     public function show(Tag $tag)
     {
+
         $articles = $tag->articles()->published()->get();
 
         return view('articles.index', compact('articles'));
     }
 
     /**
+     * Get data by tag
+     *
      * @param \Illuminate\Http\Request $request
+     * @param \App\Tag                 $tag
      *
      * @return \Illuminate\View\View
      */
-    public function edit(Request $request)
+    public function edit(Request $request, Tag $tag)
     {
-        $id = $request->segment(2);
-        $tags = Tag::getOneById($id);
+
+        $tagName = $request->segment(2);
+        $tags = Tag::getOneByTag($tagName);
 
         return view('tags.edit', compact('tags'));
 
