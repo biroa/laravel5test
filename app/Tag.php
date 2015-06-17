@@ -6,6 +6,7 @@ class Tag extends Model
 {
     /**
      * Fillable fields for tag. [mass assignment]
+     *
      * @var array
      */
     protected $fillable = [
@@ -22,7 +23,8 @@ class Tag extends Model
         return $this->belongsToMany('App\Article');
     }
 
-    public function images(){
+    public function images()
+    {
         return $this->belongsToMany('App\Image');
     }
 
@@ -47,6 +49,19 @@ class Tag extends Model
     public function scopeGetOneById($query, $id)
     {
         return $query->findOrFail($id);
+    }
+
+    /**
+     * Get one tag based on tagName
+     *
+     * @param $query
+     * @param $tagName
+     *
+     * @return mixed
+     */
+    public function scopeGetOneByTag($query, $tagName)
+    {
+        return $query->where('name', '=', $tagName)->first();
     }
 
     /**
