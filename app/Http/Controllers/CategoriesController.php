@@ -2,7 +2,6 @@
 
 use App\Category;
 use App\Http\Requests\CategoryRequest;
-use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
@@ -43,7 +42,7 @@ class CategoriesController extends Controller
      *
      * @return Response
      */
-    public function store(Request $request, Category $category)
+    public function store(CategoryRequest $request, Category $category)
     {
         $category->create($request->only('name', 'short_lead', 'lead', 'body', 'description', 'category_id'));
         //We use the Laracast service providers
