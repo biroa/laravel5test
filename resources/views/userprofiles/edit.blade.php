@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    <h1>Edit user: {!! $userprofile->first_name .' '. $userprofile->last_name !!}</h1>
+    <h1>Edit User Profile: {!! $userprofile->first_name .' '. $userprofile->last_name !!}</h1>
 
     <hr/>
     @include('errors.list')

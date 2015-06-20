@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    <h1>New Article</h1>
+    <h1>User Profile</h1>
 
     <hr/>
     @include('errors.list')
