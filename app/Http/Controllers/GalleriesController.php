@@ -2,7 +2,7 @@
 
 use App\Category;
 use App\Gallery;
-use App\Http\Requests;
+use App\Http\Requests\GalleryRequest;
 
 class GalleriesController extends Controller
 {
