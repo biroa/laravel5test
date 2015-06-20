@@ -7,6 +7,6 @@
     @include('errors.list')
 
     {!! Form::model($tags = new \App\Tag,['url'=> 'tags' ]) !!}
-    @include('tags.partials._form',['submitButtonText'=> 'Add Article'])
+    @include('tags.partials._form',['submitButtonText'=> 'Add Tag'])
     {!! Form::close() !!}
 @stop
