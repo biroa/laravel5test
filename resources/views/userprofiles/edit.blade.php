@@ -7,7 +7,7 @@
     @include('errors.list')
 
     {!! Form::model($userprofile ,['method' => 'PATCH',  'action' => ['UserprofilesController@update' , $userprofile->id ] ]) !!}
-    @include('userprofiles.partials._form',['submitButtonText'=> 'Update User profile'])
+    @include('userprofiles.partials._form',['submitButtonText'=> 'Update User Profile'])
     {!! Form::close() !!}
 
 @stop

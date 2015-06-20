@@ -7,7 +7,7 @@
     @include('errors.list')
 
     {!! Form::model($userprofile = new \App\Userprofile,['url'=> 'userprofiles' ]) !!}
-    @include('userprofiles.partials._form',['submitButtonText'=> 'Update User profile'])
+    @include('userprofiles.partials._form',['submitButtonText'=> 'Add User Profile'])
     {!! Form::close() !!}
 
 @stop
