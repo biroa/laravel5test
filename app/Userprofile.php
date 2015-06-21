@@ -61,6 +61,6 @@ class Userprofile extends Model
 
     public function country()
     {
-        return $this->hasOne('App\Country','id','country_id');
+        return $this->hasOne('App\Country', 'id', 'country_id');
     }
 }
