@@ -1,8 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use App\Tag;
 use App\Http\Requests\TagRequest;
-use App\Http\Requests\Request;
+use App\Tag;
 
 class TagsController extends Controller
 {
@@ -42,7 +41,7 @@ class TagsController extends Controller
      *
      * @return Response
      */
-    public function store(TagRequest $request,Tag $tag)
+    public function store(TagRequest $request, Tag $tag)
     {
         $tag->create($request->only('name'));
         //We use the Laracasts service providers
@@ -79,6 +78,7 @@ class TagsController extends Controller
     public function edit(Tag $tag)
     {
         $tags = $tag;
+
         return view('tags.edit', compact('tags'));
     }
 
