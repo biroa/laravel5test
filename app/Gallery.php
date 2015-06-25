@@ -11,7 +11,8 @@ class Gallery extends Model
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function scopeGetAllWith(){
+    public function scopeGetAllWith()
+    {
         return $this->with('images')->with('categories')->get();
     }
 
@@ -33,8 +34,9 @@ class Gallery extends Model
      *
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function scopeGetPaginated($query, $howMany = 25){
-        return  $this->with('images')->with('categories')->paginate($howMany);
+    public function scopeGetPaginated($query, $howMany = 25)
+    {
+        return $this->with('images')->with('categories')->paginate($howMany);
     }
 
     /**
@@ -51,7 +53,7 @@ class Gallery extends Model
 
     public function categories()
     {
-        return $this->hasMany('App\Category','id','category_id');
+        return $this->hasMany('App\Category', 'id', 'category_id');
     }
 
 }
