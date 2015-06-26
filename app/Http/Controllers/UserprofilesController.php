@@ -2,7 +2,7 @@
 
 use App\Country as Country;
 use App\Userprofile;
-use Illuminate\Http\Request;
+use App\Http\Requests\UserprofileRequest;
 
 class UserprofilesController extends Controller
 {
@@ -36,7 +36,7 @@ class UserprofilesController extends Controller
      *
      * @return Response
      */
-    public function store(Request $request, Userprofile $userprofile)
+    public function store(UserprofileRequest $request, Userprofile $userprofile)
     {
         $userprofile->create($request->except('id'));
         //We use the laracasts service providers
@@ -79,7 +79,7 @@ class UserprofilesController extends Controller
      *
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(UserprofileRequest $request, $id)
     {
         $userprofile = Userprofile::getOneById($id);
         $userprofile->update($request->except('id', 'created_at'));

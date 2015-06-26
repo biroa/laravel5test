@@ -12,8 +12,7 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('Gallery thumbnail') !!}
-    {!! Form::file('image', null) !!}
+    <!-- here won't be file uploader  -->
 </div>
 
 <div class="form-group">

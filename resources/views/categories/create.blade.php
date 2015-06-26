@@ -1,12 +1,12 @@
 @extends('app')
 
 @section('content')
-    <h1>New Profile</h1>
+    <h1>Category</h1>
 
     <hr/>
-    {!! Form::model($category = new \App\Category,['url'=> 'categories' ]) !!}
-    @include('categories.partials._form',['submitButtonText'=> 'Add Article'])
-    {!! Form::close() !!}
-
     @include('errors.list')
+
+    {!! Form::model($category = new \App\Category,['url'=> 'categories' ]) !!}
+    @include('categories.partials._form',['submitButtonText'=> 'Add Category'])
+    {!! Form::close() !!}
 @stop

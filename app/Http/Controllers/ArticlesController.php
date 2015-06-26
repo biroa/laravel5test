@@ -26,10 +26,6 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-
-        //$articles = Article::all();
-        //get data based on order by desc
-        //return \Auth::user();
         $articles = Article::getPaginated(5);
 
         return view('articles.index', compact('articles'));
@@ -57,7 +53,6 @@ class ArticlesController extends Controller
      */
     public function store(ArticleRequest $request)
     {
-
         //$article = new Article($request->all());//Mass assignment based solution
         //$article->tag()->attach($request->input('tag_list'));
         $this->createArticle($request);
@@ -79,8 +74,6 @@ class ArticlesController extends Controller
     //We use model binding in Route Service Provider
     //we do not need parameters anymore
 
-    //public function show($id)
-
     public function show(Article $article)
     {
         //$article = Article::findOrFail($id);
@@ -97,8 +90,6 @@ class ArticlesController extends Controller
 
     //We use model binding in Route Service Provider
     //we do not need parameters anymore
-
-    //public function edit($id)
 
     public function edit(Article $article)
     {

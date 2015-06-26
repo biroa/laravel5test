@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
-use App\Tag;
 use App\Http\Requests\TagRequest;
+use App\Tag;
 
 class TagsController extends Controller
 {
@@ -41,7 +41,7 @@ class TagsController extends Controller
      *
      * @return Response
      */
-    public function store(TagRequest $request,Tag $tag)
+    public function store(TagRequest $request, Tag $tag)
     {
         $tag->create($request->only('name'));
         //We use the Laracasts service providers
@@ -75,15 +75,11 @@ class TagsController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function edit(TagRequest $request, Tag $tag)
+    public function edit(Tag $tag)
     {
-
-        $tagName = $request->segment(2);
-        $tags = Tag::getOneByTag($tagName);
+        $tags = $tag;
 
         return view('tags.edit', compact('tags'));
-
-
     }
 
     /**
@@ -91,7 +87,7 @@ class TagsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request)
+    public function update(TagRequest $request)
     {
         $id = $request->segment(2);
         $tags = Tag::getOneById($id);
