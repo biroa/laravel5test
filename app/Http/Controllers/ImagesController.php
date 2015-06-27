@@ -29,10 +29,9 @@ class ImagesController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function create(ImageRequest $request)
     {
-        $tags = \App\Tag::lists('name', 'id');
-        return view('images.create',compact('tags'));
+
     }
 
     /**
