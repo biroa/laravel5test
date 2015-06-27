@@ -22,7 +22,7 @@ class ImageRequest extends Request
     {
         return [
             'name' => 'required|min:3|max:150',
-            'descrition' => 'required|min:3',
+            'description' => 'required|min:3',
             'original_img_path' => 'required|min:3',
             'large_img_path' => 'required|min:3',
             'medium_img_path' => 'required|min:3',
