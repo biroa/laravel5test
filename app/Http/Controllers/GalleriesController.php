@@ -47,7 +47,7 @@ class GalleriesController extends Controller
         //Todo:: Refactor ...
         //Todo:: resize image, get the stored record_id, save based on the id
         $imageName = $request->file('thumbnail')->getClientOriginalName();
-        $newPath = '../images/gallery_thumbnails/' . $imageName;
+        $newPath = '../_images/gallery_thumbnails/' . $imageName;
 
         $input = $request->all();
         $input['thumbnail'] = $newPath;
