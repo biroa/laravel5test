@@ -42,7 +42,7 @@ class GalleriesController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(GalleryRequest $request)
     {
         //
     }
