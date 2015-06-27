@@ -23,7 +23,8 @@ class GalleryRequest extends Request
         return [
             //
             'name' => 'required|min:3|max:150',
-            'thumbnail' => 'required|mimes:jpeg,bmp,png',
+            'category_id' => 'required|integer',
+            'thumbnail' => 'required',
             'lg_width' => 'integer|required',
             'lg_height' => 'integer|required',
             'm_width' => 'integer|required',
