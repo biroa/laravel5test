@@ -12,7 +12,7 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('thumbnail Image') !!}
+    {!! Form::label('thumbnail','Thumbnail Image') !!}
     {!! Form::file('thumbnail', null) !!}
 </div>
 
