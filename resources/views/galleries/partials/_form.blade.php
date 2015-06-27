@@ -12,8 +12,8 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('Gallery Image') !!}
-    {!! Form::file('image', null) !!}
+    {!! Form::label('thumbnail Image') !!}
+    {!! Form::file('thumbnail', null) !!}
 </div>
 
 <div class="form-group">
