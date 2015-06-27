@@ -47,14 +47,14 @@ class GalleriesController extends Controller
         //Todo:: Refactor ...
         //Todo:: resize image, get the stored record_id, save based on the id
         $imageName = $request->file('thumbnail')->getClientOriginalName();
-        $newPath = '../_images/gallery_thumbnails/' . $imageName;
+        $newPath = '../img/gallery_thumbnails/' . $imageName;
 
         $input = $request->all();
         $input['thumbnail'] = $newPath;
         $gallery->create($input);
 
         $request->file('thumbnail')->move(
-            base_path() . '/public/images/gallery_thumbnails/', $imageName
+            base_path() . '/public/img/gallery_thumbnails/', $imageName
         );
 
         flash()->success('Your Gallery has been created');
