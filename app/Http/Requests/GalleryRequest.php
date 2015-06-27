@@ -23,13 +23,13 @@ class GalleryRequest extends Request
         return [
             //
             'name' => 'required|min:3|max:150',
-            'thumbnail'=>'required|min:3|max:255',
-            'lg_width' => 'integer|required|min:3|max:5',
-            'lg_height' => 'integer|required|min:3|max:5',
-            'm_width' => 'integer|required|min:3|max:5',
-            'm_height' => 'integer|required|min:3|max:5',
-            'sm_width' => 'integer|required|min:3|max:5',
-            'sm_height' => 'integer|required|min:3|max:5',
+            'thumbnail' => 'required|mimes:jpeg,bmp,png',
+            'lg_width' => 'integer|required',
+            'lg_height' => 'integer|required',
+            'm_width' => 'integer|required',
+            'm_height' => 'integer|required',
+            'sm_width' => 'integer|required',
+            'sm_height' => 'integer|required',
         ];
     }
 
