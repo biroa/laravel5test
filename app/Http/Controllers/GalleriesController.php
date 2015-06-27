@@ -8,6 +8,7 @@ class GalleriesController extends Controller
 {
 
 
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -42,9 +43,12 @@ class GalleriesController extends Controller
      *
      * @return Response
      */
-    public function store(GalleryRequest $request)
+    public function store(GalleryRequest $request, Gallery $gallery)
     {
-        //
+        $gallery->create($request->all());
+        flash()->success('Your Gallery has been created');
+
+        return redirect('galleries');
     }
 
     /**
