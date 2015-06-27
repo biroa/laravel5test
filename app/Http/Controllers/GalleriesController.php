@@ -44,7 +44,19 @@ class GalleriesController extends Controller
      */
     public function store(GalleryRequest $request, Gallery $gallery)
     {
-        $gallery->create($request->all());
+        //Todo:: Refactor ...
+        //Todo:: resize image, get the stored record_id, save based on the id
+        $imageName = $request->file('thumbnail')->getClientOriginalName();
+        $newPath = '../images/gallery_thumbnails/' . $imageName;
+
+        $input = $request->all();
+        $input['thumbnail'] = $newPath;
+        $gallery->create($input);
+
+        $request->file('thumbnail')->move(
+            base_path() . '/public/images/gallery_thumbnails/', $imageName
+        );
+
         flash()->success('Your Gallery has been created');
 
         return redirect('galleries');
