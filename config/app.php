@@ -139,6 +139,7 @@ return [
         'Gvb\Whoops\ServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
+        'Intervention\Image\ImageServiceProvider',
 
         /*
          * Application Service Providers...
@@ -201,7 +202,8 @@ return [
         'Form' => 'Illuminate\Html\FormFacade',
         'Html' => 'Illuminate\Html\HtmlFacade',
         'Flash' => 'Laracasts\Flash\Flash',
-        'Debugbar' => 'Barryvdh\Debugbar\Facade'
+        'Debugbar' => 'Barryvdh\Debugbar\Facade',
+        'Image' => 'Intervention\Image\Facades\Image'
 
     ],
 
