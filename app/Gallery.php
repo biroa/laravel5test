@@ -6,6 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 class Gallery extends Model
 {
 
+    protected $fillable = [
+        'name',
+        'thumbnail',
+        'lg_width',
+        'lg_height',
+        'm_width',
+        'm_height',
+        'sm_width',
+        'sm_height',
+    ];
+
     /**
      * get All galleries with the correspondent images
      *
