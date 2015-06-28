@@ -53,12 +53,12 @@ class GalleriesController extends Controller
         $input['thumbnail'] = $newPath;
         $gallery->create($input);
 
-        Image::make($request->file('thumbnail'))->resize(300, 200)->save( base_path()
-            . '/public/img/gallery_thumbnails/', $imageName);
-//        $request->file['thumbnail'] = $img;
-//        $request->file('thumbnail')->move(
-//            base_path() . '/public/img/gallery_thumbnails/', $imageName
-//        );
+        $request->file('thumbnail')->move(
+            base_path() . '/public/img/gallery_thumbnails/', $imageName
+        );
+
+        //Todo:: Resize ok but it still can write to public yet. public/something fails
+//        Image::make(base_path() . '/public/img/gallery_thumbnails/', $imageName)->resize(300, 200)->save($imageName);
 
         flash()->success('Your Gallery has been created');
 
