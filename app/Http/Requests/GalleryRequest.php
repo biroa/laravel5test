@@ -24,7 +24,7 @@ class GalleryRequest extends Request
             //
             'name' => 'required|min:3|max:150',
             'category_id' => 'required|integer',
-            'thumbnail' => 'mimes:jpeg,bmp,png,jpg,JPG',
+            'thumbnail' => 'required|mimes:jpeg,bmp,png,jpg,JPG',
             'lg_width' => 'integer|required',
             'lg_height' => 'integer|required',
             'm_width' => 'integer|required',
