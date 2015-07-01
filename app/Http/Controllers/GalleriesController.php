@@ -3,6 +3,8 @@
 use App\Category;
 use App\Gallery;
 use App\Http\Requests\GalleryRequest;
+use Intervention\Image\ImageManager as Image;
+use Intervention\Image\ImageManager;
 
 class GalleriesController extends Controller
 {
@@ -47,18 +49,20 @@ class GalleriesController extends Controller
         //Todo:: Refactor ...
         //Todo:: resize image, get the stored record_id, save based on the id
         $imageName = $request->file('thumbnail')->getClientOriginalName();
-        $newPath = '../img/gallery_thumbnails/' . $imageName;
+        $newPath = 'img/gallery_thumbnails/' . $imageName;
 
         $input = $request->all();
         $input['thumbnail'] = $newPath;
+        $file =  $request->file('thumbnail');
         $gallery->create($input);
 
-        $request->file('thumbnail')->move(
-            base_path() . '/public/img/gallery_thumbnails/', $imageName
-        );
+//        $request->file('thumbnail')->move(
+//            base_path() . '/public/img/gallery_thumbnails/', $imageName
+//        );
 
-        //Todo:: Resize ok but it still can write to public yet. public/something fails
-//        Image::make(base_path() . '/public/img/gallery_thumbnails/', $imageName)->resize(300, 200)->save($imageName);
+        //Todo:: Resize ok but it still can't write to public yet. public/something fails
+        $manager = new ImageManager(['driver' => 'imagick']);
+        $manager->make($file)->resize(300, 200)->save($imageName);
 
         flash()->success('Your Gallery has been created');
 
