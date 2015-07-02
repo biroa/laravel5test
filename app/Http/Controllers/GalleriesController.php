@@ -3,7 +3,6 @@
 use App\Category;
 use App\Gallery;
 use App\Http\Requests\GalleryRequest;
-use Intervention\Image\ImageManager as Image;
 use Intervention\Image\ImageManager;
 
 class GalleriesController extends Controller
@@ -49,20 +48,22 @@ class GalleriesController extends Controller
         //Todo:: Refactor ...
         //Todo:: resize image, get the stored record_id, save based on the id
         $imageName = $request->file('thumbnail')->getClientOriginalName();
-        $newPath = 'img/gallery_thumbnails/' . $imageName;
+        $folderPath = 'img/gallery_thumbnails';
+        //Todo:: We have to move folder creation to separated method
+        $newPath = $folderPath . '/' . $imageName;
+        if ( !file_exists($folderPath) ) {
+            if ( !mkdir($folderPath, 0777, true) ) {
+                die('Failed to create folders...');
+            }
+        }
 
         $input = $request->all();
         $input['thumbnail'] = $newPath;
-        $file =  $request->file('thumbnail');
+        $file = $request->file('thumbnail');
         $gallery->create($input);
 
-//        $request->file('thumbnail')->move(
-//            base_path() . '/public/img/gallery_thumbnails/', $imageName
-//        );
-
-        //Todo:: Resize ok but it still can't write to public yet. public/something fails
-        $manager = new ImageManager(['driver' => 'imagick']);
-        $manager->make($file)->resize(300, 200)->save($imageName);
+        $manager = new ImageManager([ 'driver' => 'imagick' ]);
+        $manager->make($file)->resize(300, 200)->save($newPath);
 
         flash()->success('Your Gallery has been created');
 
