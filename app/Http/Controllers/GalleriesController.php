@@ -63,6 +63,7 @@ class GalleriesController extends Controller
         $gallery->create($input);
 
         $manager = new ImageManager([ 'driver' => 'imagick' ]);
+        //Todo::move gallery thumbnail img size to separated config
         $manager->make($file)->resize(300, 200)->save($newPath);
 
         flash()->success('Your Gallery has been created');
