@@ -3,7 +3,6 @@
 use App\Category;
 use App\Gallery;
 use App\Http\Requests\GalleryRequest;
-use Intervention\Image\ImageManager;
 
 class GalleriesController extends Controller
 {
@@ -48,23 +47,16 @@ class GalleriesController extends Controller
         //Todo:: Refactor ...
         //Todo:: resize image, get the stored record_id, save based on the id
         $imageName = $request->file('thumbnail')->getClientOriginalName();
-        $folderPath = 'img/gallery_thumbnails';
-        //Todo:: We have to move folder creation to separated method
+        //Todo:: common check for the environment variables
+        $folderPath = env('GALLERY_THUMBNAIL_PATH');
         $newPath = $folderPath . '/' . $imageName;
-        if ( !file_exists($folderPath) ) {
-            if ( !mkdir($folderPath, 0777, true) ) {
-                die('Failed to create folders...');
-            }
-        }
+        $gallery->createFolderIfNotExists();
 
         $input = $request->all();
         $input['thumbnail'] = $newPath;
         $file = $request->file('thumbnail');
         $gallery->create($input);
-
-        $manager = new ImageManager([ 'driver' => 'imagick' ]);
-        //Todo::move gallery thumbnail img size to separated config
-        $manager->make($file)->resize(300, 200)->save($newPath);
+        $gallery->resizeImage($file, $newPath);
 
         flash()->success('Your Gallery has been created');
 
