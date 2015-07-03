@@ -1,6 +1,8 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Intervention\Image\ImageManager;
+use Log;
 
 
 class Gallery extends Model
@@ -66,6 +68,29 @@ class Gallery extends Model
     public function categories()
     {
         return $this->hasMany('App\Category', 'id', 'category_id');
+    }
+
+    public function createFolderIfNotExists()
+    {
+        $folderPath = env('GALLERY_THUMBNAIL_PATH');
+        if ( !file_exists($folderPath) ) {
+            if ( !mkdir($folderPath, 0777, true) ) {
+                Log::alert('I could not create the folder');
+            }
+        }
+
+        return true;
+    }
+
+    //Todo:: Temporary!! there will be a common resizer
+    public function resizeImage($file, $newPath)
+    {
+        $width = env('GALLERY_THUMBNAIL_WIDTH');
+        $height = env('GALLERY_THUMBNAIL_HEIGHT');
+        $manager = new ImageManager([ 'driver' => 'imagick' ]);
+        $manager->make($file)->resize($width, $height)->save($newPath);
+
+        return true;
     }
 
 }
