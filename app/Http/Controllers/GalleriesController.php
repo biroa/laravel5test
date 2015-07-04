@@ -3,10 +3,11 @@
 use App\Category;
 use App\Gallery;
 use App\Http\Requests\GalleryRequest;
+use App\Http\Traits\ImageEditor;
 
 class GalleriesController extends Controller
 {
-
+    use ImageEditor;
 
     public function __construct()
     {
@@ -50,13 +51,13 @@ class GalleriesController extends Controller
         //Todo:: common check for the environment variables
         $folderPath = env('GALLERY_THUMBNAIL_PATH');
         $newPath = $folderPath . '/' . $imageName;
-        $gallery->createFolderIfNotExists();
+        $this->createFolderIfNotExists();
 
         $input = $request->all();
         $input['thumbnail'] = $newPath;
         $file = $request->file('thumbnail');
         $gallery->create($input);
-        $gallery->resizeImage($file, $newPath);
+        $this->resizeImage($file, $newPath);
 
         flash()->success('Your Gallery has been created');
 
