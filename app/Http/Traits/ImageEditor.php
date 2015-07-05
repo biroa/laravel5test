@@ -20,6 +20,51 @@ trait ImageEditor
 
         ];
 
+    /**
+     * @return mixed
+     */
+    protected function getDefaultImagePath()
+    {
+        return env('GALLERY_THUMBNAIL_PATH');
+    }
+
+    /**
+     * @return string
+     */
+    protected function getOriginalImgPath()
+    {
+        return $this->getDefaultImagePath() . 'original/img';
+    }
+
+    /**
+     * @return string
+     */
+    protected function getProcessedImgPath()
+    {
+        return $this->getDefaultImagePath() . 'processed/thumbnails';
+    }
+
+    /**
+     * @return string
+     */
+    protected function getOriginalThumbnailPath()
+    {
+        return $this->getDefaultImagePath() . 'original/thumbnails';
+    }
+
+    /**
+     * @return string
+     */
+    protected function getProcessedThumbnailPath()
+    {
+        return $this->getDefaultImagePath() . 'processed/thumbnails';
+    }
+
+    /**
+     * @param $folderPath
+     *
+     * @return bool
+     */
     protected function createFolder($folderPath)
     {
         if ( !mkdir($folderPath, 0777, true) ) {
@@ -33,6 +78,7 @@ trait ImageEditor
      * Remove the last empty array item if exists
      *
      * @param array $folderPath
+     *
      * @return array
      */
     public function removeLastItemIfEmpty(array $folderPath)
@@ -47,6 +93,7 @@ trait ImageEditor
 
     /**
      * Create the new folder structure
+     *
      * @param null $path
      */
     public function createFolderIfNotExists($path = null)
