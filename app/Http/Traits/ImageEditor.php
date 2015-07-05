@@ -6,7 +6,7 @@ use Intervention\Image\ImageManager;
 
 trait ImageEditor
 {
-
+    //future folder structure
     protected $folders =
         [
             'original' => [
@@ -30,8 +30,9 @@ trait ImageEditor
     }
 
     /**
-     * @param array $folderPath
+     * Remove the last empty array item if exists
      *
+     * @param array $folderPath
      * @return array
      */
     public function removeLastItemIfEmpty(array $folderPath)
@@ -45,6 +46,7 @@ trait ImageEditor
     }
 
     /**
+     * Create the new folder structure
      * @param null $path
      */
     public function createFolderIfNotExists($path = null)
@@ -56,18 +58,18 @@ trait ImageEditor
 
         $segment = explode('/', $path);
         $segment = implode('/', $this->removeLastItemIfEmpty($segment));
-        foreach ( $this->folders as $mainFolder=>$subFolders ) {
+        foreach ( $this->folders as $mainFolder => $subFolders ) {
             $path = $segment . '/' . $mainFolder;
             foreach ( $subFolders as $subFolders ) {
                 $last_segments = $path . '/' . $subFolders;
-                array_push($segments, $last_segments);
-//                if ( !file_exists($path) ) {
-//
-//                }
+                if ( !file_exists($last_segments) ) {
+                    $this->createFolder($last_segments);
+                }
 
             }
         }
-        dd($segments);
+
+        return true;
     }
 
     //Todo:: Temporary!! there will be a common resizer
