@@ -31,11 +31,13 @@ trait ImageEditor
 
     /**
      * @param array $folderPath
+     *
      * @return array
      */
-    public function removeLastItemIfEmpty(array $folderPath){
-        $lastItem = (int) count($folderPath)-1;
-        if(empty ($folderPath[$lastItem])){
+    public function removeLastItemIfEmpty(array $folderPath)
+    {
+        $lastItem = (int)count($folderPath) - 1;
+        if ( empty ($folderPath[$lastItem]) ) {
             array_pop($folderPath);
         }
 
@@ -47,23 +49,25 @@ trait ImageEditor
      */
     public function createFolderIfNotExists($path = null)
     {
+        $segments = [ ];
         if ( is_null($path) ) {
             $path = env('GALLERY_THUMBNAIL_PATH');
         }
 
         $segment = explode('/', $path);
-        dd($this->removeLastItemIfEmpty($segment));
-//        foreach ( $this->folders as $mainFolder ) {
-//            array_push($segments[$i],$mainFolder);
-//            array_push($segments[$i],$mainFolder);
-//            foreach($mainFolder as $subFolders){
-//                array_push($segments[$i],$subFolders);
+        $segment = implode('/', $this->removeLastItemIfEmpty($segment));
+        foreach ( $this->folders as $mainFolder=>$subFolders ) {
+            $path = $segment . '/' . $mainFolder;
+            foreach ( $subFolders as $subFolders ) {
+                $last_segments = $path . '/' . $subFolders;
+                array_push($segments, $last_segments);
 //                if ( !file_exists($path) ) {
 //
 //                }
-//
-//            }
-//        }
+
+            }
+        }
+        dd($segments);
     }
 
     //Todo:: Temporary!! there will be a common resizer
