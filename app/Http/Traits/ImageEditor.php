@@ -33,7 +33,7 @@ trait ImageEditor
      */
     protected function getOriginalImgPath()
     {
-        return $this->getDefaultImagePath() . 'original/img';
+        return $this->getDefaultImagePath() . '/original/img';
     }
 
     /**
@@ -41,7 +41,7 @@ trait ImageEditor
      */
     protected function getProcessedImgPath()
     {
-        return $this->getDefaultImagePath() . 'processed/thumbnails';
+        return $this->getDefaultImagePath() . '/processed/thumbnails';
     }
 
     /**
@@ -49,7 +49,7 @@ trait ImageEditor
      */
     protected function getOriginalThumbnailPath()
     {
-        return $this->getDefaultImagePath() . 'original/thumbnails';
+        return $this->getDefaultImagePath() . '/original/thumbnails';
     }
 
     /**
@@ -57,7 +57,7 @@ trait ImageEditor
      */
     protected function getProcessedThumbnailPath()
     {
-        return $this->getDefaultImagePath() . 'processed/thumbnails';
+        return $this->getDefaultImagePath() . '/processed/thumbnails';
     }
 
     /**
