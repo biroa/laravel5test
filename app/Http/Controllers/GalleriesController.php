@@ -49,7 +49,7 @@ class GalleriesController extends Controller
         //Todo:: resize image, get the stored record_id, save based on the id
         $imageName = $request->file('thumbnail')->getClientOriginalName();
         //Todo:: common check for the environment variables
-        $folderPath = env('GALLERY_THUMBNAIL_PATH');
+        $folderPath = $this->getOriginalThumbnailPath();
         $newPath = $folderPath . '/' . $imageName;
         $this->createFolderIfNotExists();
 
