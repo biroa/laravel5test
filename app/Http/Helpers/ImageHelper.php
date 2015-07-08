@@ -28,11 +28,4 @@ class ImageHelper
         return $image;
     }
 
-    static function cropImage($image, $x, $y, $topx = null, $topy = null)
-    {
-        //Todo: Crop top left cordinates does not working. i think it's an intervention or laravel problam atm
-        //Todo  check back later
-
-        return $image->crop($x, $y, $topx, $topy);
-    }
 }
