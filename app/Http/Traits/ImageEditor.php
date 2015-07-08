@@ -2,7 +2,7 @@
 
 namespace App\Http\Traits;
 
-use Intervention\Image\ImageManager;
+use App\Http\Helpers\ImageHelper;
 
 trait ImageEditor
 {
@@ -125,7 +125,7 @@ trait ImageEditor
         $width = env('GALLERY_THUMBNAIL_WIDTH');
         $height = env('GALLERY_THUMBNAIL_HEIGHT');
         $manager = new ImageManager([ 'driver' => 'imagick' ]);
-        $manager->make($file)->resize($width, $height)->save($newPath);
+        //$manager->make($file)->resize($width, $height)->save($newPath);
 
         return true;
     }
