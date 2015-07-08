@@ -4,6 +4,7 @@ use App\Category;
 use App\Gallery;
 use App\Http\Requests\GalleryRequest;
 use App\Http\Traits\ImageEditor;
+use App\Http\Helpers\ImageHelper as ImageHelper;
 
 class GalleriesController extends Controller
 {
@@ -43,7 +44,7 @@ class GalleriesController extends Controller
      *
      * @return Response
      */
-    public function store(GalleryRequest $request, Gallery $gallery)
+    public function store(GalleryRequest $request, Gallery $gallery, ImageHelper $imageHelper)
     {
         //Todo:: Refactor ...
         //Todo:: resize image, get the stored record_id, save based on the id
@@ -57,7 +58,7 @@ class GalleriesController extends Controller
         $input['thumbnail'] = $newPath;
         $file = $request->file('thumbnail');
         $gallery->create($input);
-        $this->resizeImage($file, $newPath);
+        $imageHelper::resizeImage($file, $newPath, 320, 0);
 
         flash()->success('Your Gallery has been created');
 
