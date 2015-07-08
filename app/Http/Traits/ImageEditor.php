@@ -119,15 +119,5 @@ trait ImageEditor
         return true;
     }
 
-    //Todo:: Temporary!! there will be a common resizer
-    public function resizeImage($file, $newPath)
-    {
-        $width = env('GALLERY_THUMBNAIL_WIDTH');
-        $height = env('GALLERY_THUMBNAIL_HEIGHT');
-        $manager = new ImageManager([ 'driver' => 'imagick' ]);
-        //$manager->make($file)->resize($width, $height)->save($newPath);
-
-        return true;
-    }
 
 }
