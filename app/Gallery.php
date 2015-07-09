@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class Gallery extends Model
 {
 
@@ -67,5 +66,6 @@ class Gallery extends Model
     {
         return $this->hasMany('App\Category', 'id', 'category_id');
     }
+
 
 }

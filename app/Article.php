@@ -55,7 +55,6 @@ class Article extends Model
         $query->where('published_at', '<=', $now);
     }
 
-
     /**
      * get still unpublished Articles
      *
@@ -67,7 +66,6 @@ class Article extends Model
         $now = Carbon::now()->toDateTimeString();
         $query->where('published_at', '>=', $now);
     }
-
 
     /**
      * An article is owned by a user.
@@ -126,7 +124,6 @@ class Article extends Model
     {
         return $this->belongsTo('App\Category');
     }
-
 
     /**
      * Get all article for public and restricted with relations
