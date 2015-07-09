@@ -17,7 +17,8 @@ elixir(function(mix) {
     mix.styles([
         'libs/bootstrap.min.css',
         'app.css',
-        'libs/select2.min.css'
+        'libs/select2.min.css',
+        'tooltip.css'
     ]);
 
     mix.scripts([
