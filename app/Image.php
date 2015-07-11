@@ -6,6 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
 
+    protected $fillable = [
+        "gallery_id",
+        "name",
+        "description",
+        "original_img_path",
+        "large_img_path",
+        "medium_img_path",
+        "small_img_path",
+        "camera",
+        "lens",
+        "focal_length",
+        "shutter_speed",
+        "aperture",
+        "iso",
+    ];
+
     /**
      * get All images with the correspondent gallery
      *
