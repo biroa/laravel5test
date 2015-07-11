@@ -46,7 +46,7 @@
                                             <td>{{$category->name}}</td>
                                         @endforeach
                                         <td>{{$gallery->name}}</td>
-                                        <td><img src="{{$gallery->thumbnail}}" width="200" height="100"></td>
+                                        <td><img src="{{$gallery->thumbnail}}" width="80"></td>
                                         <td>{{$gallery->lg_width}}</td>
                                         <td>{{$gallery->lg_height}}</td>
                                         <td>{{$gallery->m_width}}</td>
