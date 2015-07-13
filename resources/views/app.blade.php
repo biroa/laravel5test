@@ -8,6 +8,7 @@
 
     <link href="/css/all.css" rel="stylesheet">
     <link href="/css/overwrite.css" rel="stylesheet">
+    <link href="/css/tooltipster.css" rel="stylesheet">
     <link href="/css/jquery.fileupload.css" rel="stylesheet">
     <!-- Fonts -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300'
@@ -23,13 +24,26 @@
 <body>
 @include('articles.partials._menu')
 <div class="container">
-  @include('flash::message')
-  @yield('content')
+    @include('flash::message')
+    @yield('content')
 </div>
 
 <script src="/js/all.js"></script>
-
+<script src="/js/jquery.tooltipster.min.js"></script>
 
 @yield('footer')
+
+<script>
+    $(document).ready(function() {
+
+        var galleryimg = '<span><img src="'+$('#tooltip').attr('data-src')+'" /></span>';
+        $('#tooltip').tooltipster({
+            content: $(galleryimg),
+            animation: 'fade',
+            delay: 200,
+            position: 'bottom-left'
+        });
+    });
+</script>
 </body>
 </html>
