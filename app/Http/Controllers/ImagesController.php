@@ -2,7 +2,7 @@
 
 use App\Http\Requests\ImageRequest;
 use App\Image;
-
+use App\Tag;
 
 class ImagesController extends Controller
 {
@@ -29,9 +29,10 @@ class ImagesController extends Controller
      *
      * @return Response
      */
-    public function create(ImageRequest $request)
+    public function create()
     {
-
+        $tags = Tag::lists('name', 'id');
+        return view('images.create', compact('tags'));
     }
 
     /**

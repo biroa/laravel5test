@@ -46,7 +46,6 @@ class GalleriesController extends Controller
      */
     public function store(GalleryRequest $request, Gallery $gallery, ImageHelper $imageHelper)
     {
-        //Todo:: Refactor ...
         //Todo:: resize image, get the stored record_id, save based on the id
         $imageName = $request->file('thumbnail')->getClientOriginalName();
         //Todo:: common check for the environment variables
