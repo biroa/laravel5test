@@ -15,6 +15,7 @@ class AddOrigThumbnailToGalleriesTable extends Migration
     {
         Schema::table('galleries', function (Blueprint $table) {
             $table->string('orig_thumbnail', 255)->after('name');
+            $table->boolean('confirmed_path')->default(0)->after('sm_height');
         });
     }
 
@@ -27,6 +28,7 @@ class AddOrigThumbnailToGalleriesTable extends Migration
     {
         Schema::table('galleries', function (Blueprint $table) {
             $table->dropColumn('orig_thumbnail');
+            $table->dropColumn('confirmed_path');
         });
     }
 
