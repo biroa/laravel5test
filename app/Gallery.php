@@ -55,7 +55,7 @@ class Gallery extends Model
      * @return mixed
      */
     public function scopeGetConfirmedPath(){
-        $response = $this->where('confirmed_path','=','0')->get();
+        $response = $this->where('confirmed_path','=','0')->get()->toArray();
         return $response;
     }
 
