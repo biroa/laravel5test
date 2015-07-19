@@ -48,9 +48,7 @@ class GalleriesController extends Controller
      */
     public function store(GalleryRequest $request, Gallery $gallery, ImageHelper $imageHelper, Image $image)
     {
-        //Todo:: resize image, get the stored record_id, save based on the id
         $imageName = $request->file('orig_thumbnail')->getClientOriginalName();
-        //Todo:: common check for the environment variables
         $folderPath = $this->getOriginalThumbnailPath();
         $newPath = $folderPath . '/' . $imageName;
         $this->createFolderIfNotExists();
@@ -58,9 +56,8 @@ class GalleriesController extends Controller
         $input = $request->all();
         $input['orig_thumbnail'] = $newPath;
         $file = $request->file('orig_thumbnail');
-        //::Todo:: We have to save the original image
-       // dd($imageName,$newPath);
         $gallery->create($input);
+        //Save file with the original size
         $img = $image::make($file);
         $img->save($newPath);
         flash()->success('Your Gallery has been created');
