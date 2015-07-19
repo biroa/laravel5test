@@ -161,9 +161,9 @@ trait ImageEditor
     /**
      * Resize and Move the image
      */
-    public function reprocessImage($unconfimedData)
+    public function reprocessImage($unconfirmedData)
     {
-        foreach ( $unconfimedData as $data ) {
+        foreach ( $unconfirmedData as $data ) {
             $data['thumbnail'] = $this->renameImage(
                 $data['id'], $data['orig_thumbnail']
             );
