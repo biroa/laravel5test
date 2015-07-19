@@ -4,7 +4,11 @@ namespace App\Http\Traits;
 
 trait ImageEditor
 {
-    //future folder structure
+
+    protected $width, $height;
+    /**
+     * @var array
+     */
     protected $folders =
         [
             'original' => [
@@ -17,6 +21,18 @@ trait ImageEditor
             ]
 
         ];
+
+
+    public function __construct()
+    {
+        $default_width = 300;
+        $default_height = 200;
+        $this->width = empty(env('GALLERY_THUMBNAIL_PATH')) ? $default_width :
+            env('GALLERY_THUMBNAIL_PATH');
+        $this->height = empty(env('GALLERY_THUMBNAIL_PATH')) ? $default_height :
+            env('GALLERY_THUMBNAIL_PATH');
+
+    }
 
     /**
      * @return mixed
@@ -134,6 +150,13 @@ trait ImageEditor
         return $newImgPath;
     }
 
+    /**
+     * resize image based on env image settings
+     */
+    public function resizeAndSaveImage()
+    {
+
+    }
 
     /**
      * Resize and Move the image
