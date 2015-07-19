@@ -6,7 +6,8 @@
             <h1>Galleries</h1>
         </div>
         <div class="col-lg-6 text-right">
-            <a href="/galleries/create" class="btn btn-primary" role="button">Create New Gallery </a>
+            <a href="/galleries/create" class="btn btn-primary" role="button">Create
+                New Gallery </a>
         </div>
     </div>
 
@@ -19,7 +20,8 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <table class="table table-striped table-bordered table-hover"
+                               id="dataTables-example">
                             <thead>
                             <tr>
                                 <th>id</th>
@@ -46,22 +48,30 @@
                                             <td>{{$category->name}}</td>
                                         @endforeach
                                         <td>{{$gallery->name}}</td>
-                                        <td data-src="{{$gallery->thumbnail}}" id="tooltip"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></td>
+                                        <td data-src="{{$gallery->orig_thumbnail}}"
+                                            id="tooltip"><span
+                                                    class="glyphicon glyphicon-picture"
+                                                    aria-hidden="true"></span>
+                                        </td>
                                         <td>{{$gallery->lg_width}}</td>
                                         <td>{{$gallery->lg_height}}</td>
                                         <td>{{$gallery->m_width}}</td>
                                         <td>{{$gallery->m_height}}</td>
                                         <td>{{$gallery->sm_width}}</td>
                                         <td>{{$gallery->sm_height}}</td>
-                                        <td><a href=<?='/galleries/' . $gallery->id . '/edit' ?> ><span class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span class="glyphicon glyphicon-remove""></span></td>
+                                        <td>
+                                            <a href=<?='/galleries/' . $gallery->id . '/edit' ?>><span
+                                                        class="glyphicon glyphicon-pencil"></span></a><span>&nbsp;</span><span
+                                                    class="glyphicon glyphicon-remove""></span>
+                                        </td>
                                     </tr>
                                 @endforeach
                             @else
-                            <tr>
-                                <td colspan="11">
-                                    There is no gallery yet.
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td colspan="11">
+                                        There is no gallery yet.
+                                    </td>
+                                </tr>
                             @endif
                             </tbody>
                         </table>
