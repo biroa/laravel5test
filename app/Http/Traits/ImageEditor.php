@@ -119,5 +119,24 @@ trait ImageEditor
         return true;
     }
 
+    public function renameImage($imageName){
+
+    }
+
+
+    /**
+     * Resize and Move the image
+     */
+    public function resizeImage($unconfimedData){
+        foreach($unconfimedData as $data){
+            $path = explode('original',$data['orig_thumbnail']);
+            $data['thumbnail'] = $path[0] .'processed'. $path[1];
+            var_dump($data['thumbnail']);
+
+        }
+        dd('===end===');
+    }
+
+
 
 }
