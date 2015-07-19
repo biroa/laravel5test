@@ -119,8 +119,20 @@ trait ImageEditor
         return true;
     }
 
-    public function renameImage($imageName){
+    /**
+     * @param $id
+     * @param $imageName
+     */
+    public function renameImage($id,$imageName){
+        $path = explode('original',$imageName);
+        $exchangedPath = $path[0] .'processed'. $path[1];
+        $path_parts = explode('/', $exchangedPath);
+        $newFileName =  $id .'_'. strtolower($path_parts[count($path_parts)-1]);
+        array_pop($path_parts);
+        $path_parts[] = $newFileName;
+        $newImgPath = implode('/',$path_parts);
 
+        return $newImgPath;
     }
 
 
@@ -129,9 +141,7 @@ trait ImageEditor
      */
     public function resizeImage($unconfimedData){
         foreach($unconfimedData as $data){
-            $path = explode('original',$data['orig_thumbnail']);
-            $data['thumbnail'] = $path[0] .'processed'. $path[1];
-            var_dump($data['thumbnail']);
+            $this->renameImage($data['id'],$data['orig_thumbnail']);
 
         }
         dd('===end===');
