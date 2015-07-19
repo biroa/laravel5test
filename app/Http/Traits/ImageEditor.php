@@ -2,8 +2,6 @@
 
 namespace App\Http\Traits;
 
-use App\Http\Helpers\ImageHelper;
-
 trait ImageEditor
 {
     //future folder structure
@@ -123,14 +121,15 @@ trait ImageEditor
      * @param $id
      * @param $imageName
      */
-    public function renameImage($id,$imageName){
-        $path = explode('original',$imageName);
-        $exchangedPath = $path[0] .'processed'. $path[1];
+    public function renameImage($id, $imageName)
+    {
+        $path = explode('original', $imageName);
+        $exchangedPath = $path[0] . 'processed' . $path[1];
         $path_parts = explode('/', $exchangedPath);
-        $newFileName =  $id .'_'. strtolower($path_parts[count($path_parts)-1]);
+        $newFileName = $id . '_' . strtolower($path_parts[count($path_parts) - 1]);
         array_pop($path_parts);
         $path_parts[] = $newFileName;
-        $newImgPath = implode('/',$path_parts);
+        $newImgPath = implode('/', $path_parts);
 
         return $newImgPath;
     }
@@ -139,14 +138,17 @@ trait ImageEditor
     /**
      * Resize and Move the image
      */
-    public function resizeImage($unconfimedData){
-        foreach($unconfimedData as $data){
-            $this->renameImage($data['id'],$data['orig_thumbnail']);
+    public function reprocessImage($unconfimedData)
+    {
+        foreach ( $unconfimedData as $data ) {
+            $data['thumbnail'] = $this->renameImage(
+                $data['id'], $data['orig_thumbnail']
+            );
+
 
         }
         dd('===end===');
     }
-
 
 
 }
