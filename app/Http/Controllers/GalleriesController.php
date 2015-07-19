@@ -5,6 +5,8 @@ use App\Gallery;
 use App\Http\Requests\GalleryRequest;
 use App\Http\Traits\ImageEditor;
 use App\Http\Helpers\ImageHelper as ImageHelper;
+use Intervention\Image\Facades\Image as Image;
+
 
 class GalleriesController extends Controller
 {
@@ -44,21 +46,23 @@ class GalleriesController extends Controller
      *
      * @return Response
      */
-    public function store(GalleryRequest $request, Gallery $gallery, ImageHelper $imageHelper)
+    public function store(GalleryRequest $request, Gallery $gallery, ImageHelper $imageHelper, Image $image)
     {
         //Todo:: resize image, get the stored record_id, save based on the id
-        $imageName = $request->file('thumbnail')->getClientOriginalName();
+        $imageName = $request->file('orig_thumbnail')->getClientOriginalName();
         //Todo:: common check for the environment variables
         $folderPath = $this->getOriginalThumbnailPath();
         $newPath = $folderPath . '/' . $imageName;
         $this->createFolderIfNotExists();
 
         $input = $request->all();
-        $input['thumbnail'] = $newPath;
-        $file = $request->file('thumbnail');
+        $input['orig_thumbnail'] = $newPath;
+        $file = $request->file('orig_thumbnail');
+        //::Todo:: We have to save the original image
+       // dd($imageName,$newPath);
         $gallery->create($input);
-        $imageHelper::resizeImage($file, $newPath, 320, 0);
-
+        $img = $image::make($file);
+        $img->save($newPath);
         flash()->success('Your Gallery has been created');
 
         return redirect('galleries');
