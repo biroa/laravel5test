@@ -1,6 +1,7 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 
 class Gallery extends Model
 {
@@ -51,6 +52,14 @@ class Gallery extends Model
     }
 
     /**
+     * @return mixed
+     */
+    public function scopeGetConfirmedPath(){
+        $response = $this->where('confirmed_path','=','0')->get();
+        return $response;
+    }
+
+    /**
      * relation
      *
      * Gallery has many images
@@ -66,6 +75,7 @@ class Gallery extends Model
     {
         return $this->hasMany('App\Category', 'id', 'category_id');
     }
+
 
 
 }
