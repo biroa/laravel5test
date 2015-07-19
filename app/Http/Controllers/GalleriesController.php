@@ -61,6 +61,7 @@ class GalleriesController extends Controller
         $img = $image::make($file);
         $img->save($newPath);
         flash()->success('Your Gallery has been created');
+        $this->reprocessImage($gallery->getConfirmedPath());
 
         return redirect('galleries');
     }
