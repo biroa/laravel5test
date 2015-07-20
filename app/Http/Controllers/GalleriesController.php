@@ -50,7 +50,7 @@ class GalleriesController extends Controller
     {
         $imageName = $request->file('orig_thumbnail')->getClientOriginalName();
         $folderPath = $this->getOriginalThumbnailPath();
-        $newPath = $folderPath . '/' . $imageName;
+        $newPath = $folderPath . '/' . str_replace(' ','_', strtolower($imageName));
         $this->createFolderIfNotExists();
 
         $input = $request->all();
