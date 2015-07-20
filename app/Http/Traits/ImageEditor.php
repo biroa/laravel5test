@@ -164,13 +164,13 @@ trait ImageEditor
     public function reprocessImage($unconfirmedData)
     {
         foreach ( $unconfirmedData as $data ) {
-            $data['thumbnail'] = $this->renameImage(
+            $data->thumbnail = $this->renameImage(
                 $data['id'], $data['orig_thumbnail']
             );
 
 
         }
-        dd('===end===');
+        dd($unconfirmedData);
     }
 
 
