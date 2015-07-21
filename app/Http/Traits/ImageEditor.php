@@ -2,6 +2,8 @@
 
 namespace App\Http\Traits;
 
+use App\Gallery;
+
 trait ImageEditor
 {
 
@@ -153,9 +155,9 @@ trait ImageEditor
     /**
      * resize image based on env image settings
      */
-    public function resizeAndSaveImage()
+    public function resizeAndSaveImage($data)
     {
-
+        //data for insert
     }
 
     /**
@@ -170,7 +172,7 @@ trait ImageEditor
 
 
         }
-        dd($unconfirmedData);
+        $this->resizeAndSaveImage($unconfirmedData);
     }
 
 
