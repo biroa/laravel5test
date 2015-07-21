@@ -153,7 +153,9 @@ trait ImageEditor
     }
 
     /**
-     * resize image based on env image settings
+     * Update data in the database
+     *
+     * @param $data
      */
     public function resizeAndSaveImage($data)
     {
