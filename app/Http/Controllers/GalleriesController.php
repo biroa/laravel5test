@@ -11,12 +11,12 @@ use Intervention\Image\Facades\Image as Image;
 class GalleriesController extends Controller
 {
     use ImageEditor;
-    protected $table;
+    protected $model;
 
-    public function __construct()
+    public function __construct(Gallery $gallery)
     {
         $this->middleware('auth');
-        $this->table = 'galleries';
+        $this->model = $gallery;
     }
 
     /**
