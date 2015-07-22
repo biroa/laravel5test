@@ -153,7 +153,17 @@ trait ImageEditor
         return $newImgPath;
     }
 
-    
+    //Todo:: Delete method separate one for thumbnails one for gallery images
+    // We call them based on the model name and we will resize images based on them
+    public function __call($name, $arguments)
+    {
+        // Note: value of $name is case sensitive.
+        echo "Calling object method '$name' "
+            . implode(', ', $arguments). "\n";
+        dd();
+    }
+
+
 
     /**
      * Move Images to their new place
@@ -162,6 +172,7 @@ trait ImageEditor
      */
     protected function moveImagesToTheirNewPlace($data)
     {
+
         foreach($data as $value){
 
         }
@@ -201,7 +212,9 @@ trait ImageEditor
         }
 
         if ( $this->setNewPathOfImages($unconfirmedData) ) {
-
+            $className = get_class($this->model);
+            $baseClass = class_basename($className);
+            $this->$baseClass($baseClass);
         }else{
             return false;
         }
