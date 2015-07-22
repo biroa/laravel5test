@@ -3,6 +3,7 @@
 namespace App\Http\Traits;
 
 use App\Gallery;
+use Intervention\Image\ImageManager;
 
 trait ImageEditor
 {
@@ -90,6 +91,7 @@ trait ImageEditor
         return true;
     }
 
+
     /**
      * Remove the last empty array item if exists
      *
@@ -97,7 +99,7 @@ trait ImageEditor
      *
      * @return array
      */
-    public function removeLastItemIfEmpty(array $folderPath)
+    protected function removeLastItemIfEmpty(array $folderPath)
     {
         $lastItem = (int)count($folderPath) - 1;
         if ( empty ($folderPath[$lastItem]) ) {
@@ -112,9 +114,8 @@ trait ImageEditor
      *
      * @param null $path
      */
-    public function createFolderIfNotExists($path = null)
+    protected function createFolderIfNotExists($path = null)
     {
-        $segments = [ ];
         if ( is_null($path) ) {
             $path = env('GALLERY_THUMBNAIL_PATH');
         }
@@ -139,7 +140,7 @@ trait ImageEditor
      * @param $id
      * @param $imageName
      */
-    public function renameImage($id, $imageName)
+    protected function renameImage($id, $imageName)
     {
         $path = explode('original', $imageName);
         $exchangedPath = $path[0] . 'processed' . $path[1];
@@ -153,13 +154,35 @@ trait ImageEditor
     }
 
     /**
-     * Update data in the database
+     * Move Images to their new place
      *
      * @param $data
      */
-    public function resizeAndSaveImage($data)
+    public function moveImagesToTheirNewPlace($data)
     {
-        //data for insert
+        foreach($data as $value){
+
+        }
+    }
+
+    /**
+     * update the new path of the image
+     *
+     * @param $data
+     */
+
+    protected function setNewPathOfImages($data)
+    {
+        foreach ( $data as $value ) {
+            //Select record by Id on the 'model'
+            $record = $this->model->findOrFail($value->id);
+            $record->thumbnail = $value->thumbnail;
+            if ( !$record->save() ) {
+                return false;
+            };
+        }
+
+        return true;
     }
 
     /**
@@ -174,7 +197,12 @@ trait ImageEditor
 
 
         }
-        $this->resizeAndSaveImage($unconfirmedData);
+
+        if ( $this->setNewPathOfImages($unconfirmedData) ) {
+
+        }else{
+            return false;
+        }
     }
 
 
