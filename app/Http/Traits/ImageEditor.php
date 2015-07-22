@@ -153,12 +153,14 @@ trait ImageEditor
         return $newImgPath;
     }
 
+    
+
     /**
      * Move Images to their new place
      *
      * @param $data
      */
-    public function moveImagesToTheirNewPlace($data)
+    protected function moveImagesToTheirNewPlace($data)
     {
         foreach($data as $value){
 
