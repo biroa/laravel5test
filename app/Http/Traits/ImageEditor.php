@@ -2,9 +2,6 @@
 
 namespace App\Http\Traits;
 
-use App\Gallery;
-use Intervention\Image\ImageManager;
-
 trait ImageEditor
 {
 
@@ -153,16 +150,12 @@ trait ImageEditor
         return $newImgPath;
     }
 
-    //Todo:: Delete method separate one for thumbnails one for gallery images
-    // We call them based on the model name and we will resize images based on them
-    public function __call($name, $arguments)
-    {
-        // Note: value of $name is case sensitive.
-        echo "Calling object method '$name' "
-            . implode(', ', $arguments). "\n";
-        dd();
+    /**
+     * moveGallery images to their new place
+     */
+    public function moveGalleryImageToNewPlace(){
+        dd('called');
     }
-
 
 
     /**
@@ -173,7 +166,7 @@ trait ImageEditor
     protected function moveImagesToTheirNewPlace($data)
     {
 
-        foreach($data as $value){
+        foreach ( $data as $value ) {
 
         }
     }
@@ -213,9 +206,11 @@ trait ImageEditor
 
         if ( $this->setNewPathOfImages($unconfirmedData) ) {
             $className = get_class($this->model);
-            $baseClass = class_basename($className);
-            $this->$baseClass($baseClass);
-        }else{
+            //call move[class name]ImageToNewPlace functions
+            $baseClass = 'move' . class_basename($className) . 'ImageToNewPlace';
+            dd($baseClass);
+            $this->$baseClass();
+        } else {
             return false;
         }
     }
