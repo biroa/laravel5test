@@ -153,8 +153,12 @@ trait ImageEditor
     /**
      * moveGallery images to their new place
      */
-    public function moveGalleryImageToNewPlace(){
-        dd('called');
+    public function moveGalleryImageToNewPlace($unconfirmedData){
+
+        foreach ( $unconfirmedData as $value ) {
+            var_dump($value);
+        }
+        dd('=end=');
     }
 
 
@@ -166,9 +170,6 @@ trait ImageEditor
     protected function moveImagesToTheirNewPlace($data)
     {
 
-        foreach ( $data as $value ) {
-
-        }
     }
 
     /**
@@ -208,8 +209,7 @@ trait ImageEditor
             $className = get_class($this->model);
             //call move[class name]ImageToNewPlace functions
             $baseClass = 'move' . class_basename($className) . 'ImageToNewPlace';
-            dd($baseClass);
-            $this->$baseClass();
+            $this->$baseClass($unconfirmedData);
         } else {
             return false;
         }
