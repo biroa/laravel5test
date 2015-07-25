@@ -2,6 +2,8 @@
 
 namespace App\Http\Traits;
 
+use Intervention\Image\Image;
+
 trait ImageEditor
 {
 
@@ -153,12 +155,20 @@ trait ImageEditor
     /**
      * moveGallery images to their new place
      */
+    //Todo::I have to check this
     public function moveGalleryImageToNewPlace($unconfirmedData){
-
+        $image = new Image();
         foreach ( $unconfirmedData as $value ) {
-            var_dump($value);
+            //Todo:: I have to separate thr resize part
+            $img = $image->make($value->thumbnail);
+            $img->resize($this->width,$this->height);
+            $img->save();
+            $record = $this->model->findOrFail($value->id);
+            $value->confirmed_path = 1;
+            if ( !$record->save() ) {
+                return false;
+            };
         }
-        dd('=end=');
     }
 
 
