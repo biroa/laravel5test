@@ -2,12 +2,14 @@
 
 namespace App\Http\Traits;
 
-use Intervention\Image\Image;
+use App\Http\Helpers\ImageHelper as ImageHelper;
+
 
 trait ImageEditor
 {
 
     protected $width, $height;
+    public $image;
     /**
      * @var array
      */
@@ -157,18 +159,21 @@ trait ImageEditor
      */
     //Todo::I have to check this
     public function moveGalleryImageToNewPlace($unconfirmedData){
-        $image = new Image();
         foreach ( $unconfirmedData as $value ) {
-            //Todo:: I have to separate thr resize part
-            $img = $image->make($value->thumbnail);
-            $img->resize($this->width,$this->height);
-            $img->save();
+            //Todo:: I have to check the helper
+            ImageHelper::resizeImage(
+                $value->orig_thumbnail,
+                $value->thumbnail,
+                $this->width,
+                $this->height);
+
             $record = $this->model->findOrFail($value->id);
-            $value->confirmed_path = 1;
+            $record->confirmed_path = 1;
             if ( !$record->save() ) {
                 return false;
             };
         }
+        return true;
     }
 
 
